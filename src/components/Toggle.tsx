@@ -26,11 +26,13 @@ const Slider = styled.span`
   transition: 0.4s;
   border-radius: 2.2rem;
   background: ${(props: { toggled: boolean }) => (props.toggled ? '#BBDEFB' : '#C2C2C2')};
+  z-index: -1;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     width: 20px;
     height: 8px;
     top: 6px;
+    
   }
 
   &::before {
@@ -44,6 +46,8 @@ const Slider = styled.span`
     background: ${(props) => (props.toggled ? '#2196F3' : '#F5F5F5')};
     transition: 0.4s;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+    
 
     ${(props) =>
       props.toggled &&
