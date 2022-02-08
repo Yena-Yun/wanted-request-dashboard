@@ -6,11 +6,7 @@ const Toggle = () => {
 
   return (
     <ElSwitch>
-      <ToggleInput
-        type="checkbox"
-        checked={checked}
-        onChange={() => setChecked(!checked)}
-      />
+      <ToggleInput type='checkbox' checked={checked} onChange={() => setChecked(!checked)} />
       <Slider toggled={checked} />
     </ElSwitch>
   );
@@ -27,8 +23,8 @@ const Slider = styled.span`
   height: 14px;
   transition: 0.4s;
   border-radius: 2.2rem;
-  background: ${(props: { toggled: boolean }) =>
-    props.toggled ? '#BBDEFB' : '#C2C2C2'};
+  background: ${(props: { toggled: boolean }) => (props.toggled ? '#BBDEFB' : '#C2C2C2')};
+
   &::before {
     position: absolute;
     content: '';
@@ -53,7 +49,6 @@ const ElSwitch = styled.label`
   display: inline-block;
   width: 2.4rem;
   height: 1rem;
-  margin: 0 auto;
 `;
 
 const ToggleInput = styled.input`

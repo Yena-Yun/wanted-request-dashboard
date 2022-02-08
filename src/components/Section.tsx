@@ -49,10 +49,14 @@ const Sub = styled.p`
   font-size: 16px;
   line-height: 24px;
   color: #323d45;
+  margin-bottom: 32px;
 `;
 
 const SelectorWrap = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
 `;
 
 const Content = styled.div`
