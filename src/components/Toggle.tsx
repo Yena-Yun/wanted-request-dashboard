@@ -72,8 +72,7 @@ const ElSwitch = styled.label`
   margin-right: 16px;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
-    margin-right: -4px;
-    margin-top: -1px;
+    margin: -1px -4px 0 0;
   }
 `;
 

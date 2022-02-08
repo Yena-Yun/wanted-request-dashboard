@@ -22,9 +22,11 @@ const color: DefaultTheme = {
   button: '#2196F3',
   warning: '#FFA000',
   extraLight: '#DADADA',
+  noContent: '#c2c2c2',
 };
 
 const radius: DefaultTheme = {
+  modal: '2px',
   base: '4px',
   button: '12px',
 };
