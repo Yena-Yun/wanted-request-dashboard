@@ -1,14 +1,9 @@
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
-import logo from 'assets/logo.png';
-import company from 'assets/company.png';
+import { useOnClickOutside } from '../hooks/useOnClickOutside';
 import Sidebar from './Sidebar';
 import Burger from './Burger';
-import { useOnClickOutside } from '../hooks/useOnClickOutside';
-
-type colorType = {
-  color: Object | undefined;
-};
+import styled from 'styled-components';
+import { logo, company } from 'assets';
 
 const Header = () => {
 
@@ -43,15 +38,15 @@ const Header = () => {
 };
 
 const Wrapper = styled.div`
-  padding: 25px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1565c0;
+  padding: 25px 40px;
+  background: ${({ theme }) => theme.color.primary};
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
   position: relative;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
     height: 70px;
     padding: 16px 60px;
   }  
@@ -66,12 +61,12 @@ const LogoWrap = styled.div`
 const MenuWrap = styled('div')<{ show: boolean }>`
   height: 40px;
   margin-right: 19px;
-  display: none;
   position: absolute;
   top: 42%;
   left: 20px;
+  display: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
     ${(props) => props.show && 'display: block'}
   }
 
@@ -83,7 +78,7 @@ const Bar = styled.div`
   width: 18px;
   height: 2px;
   margin-bottom: 3px;
-  background: #dadada;
+  background: ${({ theme }) => theme.color.extraLight};
 
   &:last-child {
     margin-bottom: 0;
@@ -99,7 +94,7 @@ const GnbWrap = styled('div')<{ show: boolean }>`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
     ${(props) => props.show && 'display: none'}
   }
 `;
@@ -112,9 +107,7 @@ const CompanyWrap = styled.div`
 
 const CompanyImgWrap = styled.div`
   height: 100%;
-  display: block;
-  margin-right: 8px;
-  margin-top: -11px;
+  margin: -11px 8px 0 0;
 `;
 
 const Company = styled.img`
@@ -122,22 +115,22 @@ const Company = styled.img`
 `;
 
 const CompanyName = styled.p`
-  font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 20px;
+  font-size: ${({ theme }) => theme.size[1]};
+  font-weight: ${({ theme }) => theme.weight.medium};
+  color: ${({ theme }) => theme.color.white};
+  line-height: ${({ theme }) => theme.size[3]};
 `;
 const Divider = styled.div`
   width: 1px;
   height: 16px;
-  background: #ffffff;
+  background: ${({ theme }) => theme.color.white};
   margin: 0 32px;
 `;
 
 const LogOut = styled.button`
-  font-size: 14px;
-  color: #ffffff;
-  line-height: 20px;
+  font-size: ${({ theme }) => theme.size[1]};
+  color: ${({ theme }) => theme.color.white};
+  line-height: ${({ theme }) => theme.size[3]};
 `;
 
 export default Header;
