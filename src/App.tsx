@@ -3,8 +3,6 @@ import { useOnClickOutside } from 'hooks/useOnClickOutside';
 import { getApiFunc } from 'utils';
 import { dataType } from 'types';
 import { Header, Section } from 'components';
-import AllSelectBox from 'components/AllSelectBox';
-import Toggle from 'components/Toggle';
 
 const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);
@@ -23,8 +21,6 @@ const App = (): JSX.Element => {
   return (
     <>
       <Header node={node} openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      <Toggle />
-      <AllSelectBox />
       <Section data={data}></Section>
     </>
   );
