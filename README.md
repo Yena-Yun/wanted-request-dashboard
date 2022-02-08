@@ -1,7 +1,7 @@
 <h1>원티드: 요청서 대시보드 구현</h1>
 
 ## 🎈 배포
-🔗 **링크**: https://wanted-request-dashboard.herokuapp.com/
+🔗 **링크**: https://dashboard.heroku.com/apps/wanted-ateam-dashboard
 
 <br>
 
