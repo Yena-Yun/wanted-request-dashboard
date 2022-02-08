@@ -145,7 +145,8 @@ const ToggleWrap = styled.div`
 const ToggleText = styled.p`
   font-size: 14px;
   line-height: 20px;
-  color: ${({ theme }) => theme.color.default} @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+  color: ${({ theme }) => theme.color.default} @media screen and
+    (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;
     margin-left: -2px;
   }
@@ -155,11 +156,8 @@ const Content = styled.div`
   ${({ theme }) => theme.flex.center}
   flex-wrap: wrap;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
-    width: 360px;
-    padding: 0 6px;
-    flex-wrap: nowrap;
-    justify-content: initial;
+  @media screen and (min-width: 1440px) {
+    width: 1130px;
   }
 `;
 
@@ -167,7 +165,8 @@ const NoContent = styled.div`
   width: 1130px;
   height: 100px;
   border: 1px solid ${({ theme }) => theme.color.noContent};
-  color: ${({ theme }) => theme.color.sub} ${({ theme }) => theme.flex.center} @media screen and (max-width: 1142px) {
+  color: ${({ theme }) => theme.color.sub} ${({ theme }) => theme.flex.center}
+    @media screen and (max-width: 1142px) {
     width: 750px;
   }
 
