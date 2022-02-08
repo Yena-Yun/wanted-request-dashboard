@@ -33,15 +33,13 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
 };
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column};
   position: relative;
   z-index: 0;
   margin-right: 5px;
 `;
 
 const Wrapper = styled.div`
-  display: flex;
   width: ${(props: StyleType) =>
     props.select.length && props.type === 'method'
       ? '113px'
@@ -53,14 +51,13 @@ const Wrapper = styled.div`
   color: ${(props: StyleType) => (props.select.length ? 'white' : '#323d45')};
   background: ${(props) => (props.select.length ? '#1565C0' : 'white')};
   height: 32px;
-  border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #939fa5;
+  border-radius: ${({ theme }) => theme.radius.base};
+  ${({ theme }) => theme.flex.center};
+  border: 1px solid ${({ theme }) => theme.color.sub};
   cursor: pointer;
 
   &:hover {
-    border-color: #2196f3;
+    border-color: ${({ theme }) => theme.color.button};
   }
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
@@ -77,8 +74,8 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.size[0]};
+  font-weight: ${({ theme }) => theme.weight.medium};
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;

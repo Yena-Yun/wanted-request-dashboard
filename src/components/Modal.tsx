@@ -52,6 +52,7 @@ const Select = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const Input = styled.input`
   display: none;
 
@@ -64,7 +65,7 @@ const Input = styled.input`
     height: 18px;
     color: ${({ theme }) => theme.color.button};
     background: ${({ theme }) => theme.color.button};
-    border-radius: 2px;
+    border-radius: ${({ theme }) => theme.radius.modal};
   }
 `;
 const CheckBox = styled.div`
@@ -94,8 +95,6 @@ const Content = styled.span`
   left: 0px;
   right: 0px;
   top: calc(50% - 20px / 2);
-  font-family: Noto Sans KR Medium;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;

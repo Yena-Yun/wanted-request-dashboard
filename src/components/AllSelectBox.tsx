@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 
 const Text = styled.div`
   margin-bottom: 2px;
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.size[0]};
 `;
 
 const Img = styled.img`
@@ -50,7 +50,7 @@ const Img = styled.img`
 const RefreshButton = styled.div`
   display: flex;
   align-items: center;
-  color: #2196f3;
+  color: ${({ theme }) => theme.color.button};
   cursor: pointer;
 `;
 

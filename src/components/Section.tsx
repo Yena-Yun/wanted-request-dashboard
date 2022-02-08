@@ -95,19 +95,19 @@ const Navbar = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.size[3]};
   line-height: 32px;
   color: ${({ theme }) => theme.color.default};
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
-    font-size: 12px;
-    line-height: 12px;
+    font-size: ${({ theme }) => theme.size[0]}
+    line-height: ${({ theme }) => theme.size[0]}
   }
 `;
 
 const Sub = styled.p`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: ${({ theme }) => theme.size[2]}
+  line-height: ${({ theme }) => theme.size[4]}
   color: ${({ theme }) => theme.color.default};
   margin-bottom: 32px;
 
@@ -145,19 +145,15 @@ const ToggleWrap = styled.div`
 const ToggleText = styled.p`
   font-size: 14px;
   line-height: 20px;
-  color: #323d45;
-
-  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+  color: ${({ theme }) => theme.color.default} @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;
     margin-left: -2px;
   }
 `;
 
 const Content = styled.div`
-  display: flex;
+  ${({ theme }) => theme.flex.center}
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     width: 360px;
@@ -170,13 +166,8 @@ const Content = styled.div`
 const NoContent = styled.div`
   width: 1130px;
   height: 100px;
-  border: 1px solid #c2c2c2;
-  color: #939fa5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: 1142px) {
+  border: 1px solid ${({ theme }) => theme.color.noContent};
+  color: ${({ theme }) => theme.color.sub} ${({ theme }) => theme.flex.center} @media screen and (max-width: 1142px) {
     width: 750px;
   }
 
