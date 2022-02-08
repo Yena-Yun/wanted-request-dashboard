@@ -1,16 +1,40 @@
-import styled from 'styled-components';
-import checkIcon from 'assets/check.png';
+import styled from "styled-components";
+import checkIcon from "assets/check.png";
 
-const Modal = (props: { type: string }): JSX.Element => {
-  const method: string[] = ['밀링', '선반'];
-  const material: string[] = ['알루미늄', '탄소강', '구리', '합금강', '강철'];
+interface ModalProps {
+  type: string;
+  setSelect: (select: string[]) => void;
+  select: string[] | [];
+}
+
+const Modal = ({ type, setSelect, select }: ModalProps): JSX.Element => {
+  const method: string[] = ["밀링", "선반"];
+  const material: string[] = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
+  let list: string[] = method;
+  if (type === "material") {
+    list = material;
+  }
+
+  const handleLabel = (el: string) => {
+    select.includes(el as never)
+      ? setSelect(select.filter((e) => e !== el))
+      : setSelect([...select, el]);
+  };
+
   return (
     <SelectBox>
-      {method.map((el, idx) => (
+      {list.map((el) => (
         <Select key={el}>
-          <Input type="checkbox" id={el} value={el} />
+          <Input
+            type="checkbox"
+            id={el}
+            value={el}
+            checked={select.includes(el as never)}
+            readOnly
+          />
+
           <CheckBox>
-            <Label htmlFor={el}>
+            <Label htmlFor={el} onClick={() => handleLabel(el)}>
               <CheckIcon src={checkIcon} alt="check-icon" />
             </Label>
             <Content>{el}</Content>
@@ -27,6 +51,9 @@ const SelectBox = styled.div`
   border: 1px solid #939fa5;
   border-radius: 4px;
   padding: 12px 20px;
+  z-index: 999;
+  position: absolute;
+  top: 35px;
 `;
 
 const Select = styled.div`
@@ -39,7 +66,7 @@ const Input = styled.input`
     position: absolute;
     top: 0%;
     left: 0%;
-    content: '';
+    content: "";
     width: 18px;
     height: 18px;
     color: #2196f3;

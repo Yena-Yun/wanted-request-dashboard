@@ -2,28 +2,59 @@ import styled from "styled-components";
 import img from "assets/arrow_down.png";
 import activeImg from "assets/arrow_down_active.png";
 import { SelectBoxProps, StyleType } from "types";
-import { useState } from "react";
-
-type SelectType = string[] | [];
+import Modal from "./Modal";
 
 const SelectBox = (props: SelectBoxProps): JSX.Element => {
-  const [select, setSelect] = useState<SelectType>(["asdsad"]);
-
+  const handleWrapper = () => {
+    if (props.type === "method") {
+      (props.click === 0 || props.click === 2) && props.setClick(1);
+      props.click === 1 && props.setClick(0);
+    } else {
+      (props.click === 0 || props.click === 1) && props.setClick(2);
+      props.click === 2 && props.setClick(0);
+    }
+  };
   return (
-    <Wrapper type={props.type} select={select}>
-      <Content>
-        {props.type === "method"
-          ? `가공방식${select.length ? "(" : ""}${
-              select.length ? select.length : ""
-            }${select.length ? ")" : ""}`
-          : `재료${select.length ? "(" : ""}${
-              select.length ? select.length : ""
-            }${select.length ? ")" : ""}`}
-      </Content>
-      <ArrowDownImg src={select.length ? activeImg : img} />
-    </Wrapper>
+    <Container>
+      <Wrapper type={props.type} select={props.select} onClick={handleWrapper}>
+        <Content>
+          {props.type === "method"
+            ? `가공방식${props.select.length ? "(" : ""}${
+                props.select.length ? props.select.length : ""
+              }${props.select.length ? ")" : ""}`
+            : `재료${props.select.length ? "(" : ""}${
+                props.select.length ? props.select.length : ""
+              }${props.select.length ? ")" : ""}`}
+        </Content>
+        <ArrowDownImg src={props.select.length ? activeImg : img} />
+      </Wrapper>
+
+      {props.type === "method" && props.click === 1 && (
+        <Modal
+          type={"method"}
+          setSelect={props.setSelect}
+          select={props.select}
+        />
+      )}
+
+      {props.type === "material" && props.click === 2 && (
+        <Modal
+          type={"material"}
+          setSelect={props.setSelect}
+          select={props.select}
+        />
+      )}
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  margin-right: 5px;
+`;
 
 const Wrapper = styled.div`
   display: flex;
