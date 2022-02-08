@@ -37,13 +37,14 @@
     
 박민주
    - 모바일 화면: 메뉴 버튼 클릭 시 사이드 바 transition 구현
-   - 모달창 바깥을 누르면 모달이 사라지는 hooks 함수 도입
+   - 모바일 화면: 사이드 바 나타난 후 바깥쪽 누르면 사이드 바 제거
+   - 요소 바깥을 누르면 요소가 사라지는 hooks 함수 도입 (hooks/useOnClickOutside)
  
 윤예나
-   - 웹 화면 반응형 UI 구현
+   - json-server 연결 후 카드에 데이터 렌더링
+   - 웹 화면 UI + 카드 반응형 구현
    - 모바일 화면 UI 구현
-   - styled-components의 ThemeProvider: theme.ts 작성 
-   - 전체 컴포넌트의 스타일 리팩토링
+   - styled-components의 ThemeProvider 도입 + 전체 컴포넌트 스타일 리팩토링
     
 <br>
 
@@ -63,6 +64,16 @@
     │   ├── Sidebar
     │   └── Toggle       
     ├── hooks           # 커스텀 훅
+    │   └── useOnClickOutside 
+    ├── styles
+    │   ├── fonts       # Noto Sans KR 폰트 다운로드한 폴더
+    │   ├── globalStyles
+    │   └── theme.ts 
     ├── types           # Typescript interface 타입들
+    │   ├── burgerMenuType
+    │   ├── dataType 
+    │   └── selectBoxType
     └── utils           # 공통 함수
+        ├── filteringData
+        └── getApi
 ```
