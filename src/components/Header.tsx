@@ -39,7 +39,11 @@ const Wrapper = styled.div`
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
   position: relative;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
+    padding: 25px 60px;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     height: 44px;
     padding: 16px 60px;
   }
@@ -50,7 +54,7 @@ const LogoWrap = styled.div`
   height: 20px;
   display: flex;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     height: 12px;
     width: 91.8px;
   }
@@ -65,7 +69,7 @@ const GnbWrap = styled('div')<{ show: boolean }>`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
     ${(props) => props.show && 'display: none'}
   }
 `;

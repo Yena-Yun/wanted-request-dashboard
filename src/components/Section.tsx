@@ -60,6 +60,10 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.flex.column};
   align-items: center;
   padding: 40px 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    padding: 24px 0;
+  }
 `;
 
 const Shadow = styled.div<{ openMenu: boolean }>`
@@ -83,12 +87,22 @@ const Navbar = styled.div`
   @media screen and (max-width: 767px) {
     width: 376px;
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    width: 360px;
+    padding: 0 20px 8px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 20px;
   line-height: 32px;
   color: ${({ theme }) => theme.color.default};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 12px;
+    line-height: 12px;
+  }
 `;
 
 const Sub = styled.p`
@@ -96,6 +110,12 @@ const Sub = styled.p`
   line-height: 24px;
   color: ${({ theme }) => theme.color.default};
   margin-bottom: 32px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 6px;
+    line-height: 8px;
+    margin-bottom: 20px;
+  }
 `;
 
 const SelectorWrap = styled.div`
@@ -107,6 +127,10 @@ const SelectorWrap = styled.div`
   @media screen and (max-width: 768px) {
     display: initial;
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    margin-bottom: 20px;
+  }
 `;
 
 const ToggleWrap = styled.div`
@@ -114,7 +138,7 @@ const ToggleWrap = styled.div`
   align-items: center;
 
   @media screen and (max-width: 768px) {
-    margin: 0 8px;
+    margin: 0 0 0 8px;
   }
 `;
 
@@ -122,6 +146,11 @@ const ToggleText = styled.p`
   font-size: 14px;
   line-height: 20px;
   color: #323d45;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    margin-left: -2px;
+  }
 `;
 
 const Content = styled.div`
@@ -129,6 +158,13 @@ const Content = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    width: 360px;
+    padding: 0 6px;
+    flex-wrap: nowrap;
+    justify-content: initial;
+  }
 `;
 
 const NoContent = styled.div`
