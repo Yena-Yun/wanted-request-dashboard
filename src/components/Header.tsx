@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import logo from 'assets/logo.png';
 import company from 'assets/company.png';
+import Sidebar from './Sidebar';
+import Burger from './Burger';
+import { useOnClickOutside } from '../hooks/useOnClickOutside';
 
 type colorType = {
   color: Object | undefined;
 };
 
 const Header = () => {
+
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const node = useRef<HTMLDivElement>(null);
+  useOnClickOutside(node, () => setOpenMenu(false));
+
   return (
+    <>
     <Wrapper>
-      <MenuWrap show>
-        <Bar />
-        <Bar />
-        <Bar />
-      </MenuWrap>
+      <div  ref={node}>
+      <Burger openMenu={openMenu} setOpenMenu={setOpenMenu}/>
+      {openMenu &&
+      <Sidebar openMenu={openMenu} />}
+      </div>
       <LogoWrap>
         <Logo src={logo} alt='logo' />
       </LogoWrap>
@@ -29,6 +38,7 @@ const Header = () => {
         <LogOut>로그아웃</LogOut>
       </GnbWrap>
     </Wrapper>
+    </>
   );
 };
 
@@ -44,7 +54,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: 768px) {
     height: 70px;
     padding: 16px 60px;
-  }
+  }  
 `;
 
 const LogoWrap = styled.div`
@@ -64,6 +74,9 @@ const MenuWrap = styled('div')<{ show: boolean }>`
   @media screen and (max-width: 768px) {
     ${(props) => props.show && 'display: block'}
   }
+
+  transform: translateX(0%);
+  transition: transform 2s;
 `;
 
 const Bar = styled.div`
