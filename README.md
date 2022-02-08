@@ -36,9 +36,9 @@
    - 피그마의 예시대로 css 완벽구현
     
 박민주
-   - 모바일 화면: 메뉴 버튼 클릭 시 사이드 바 transition 구현
-   - 모바일 화면: 사이드 바 나타난 후 바깥쪽 누르면 사이드 바 제거
-   - 요소 바깥을 누르면 요소가 사라지는 hooks 함수 도입 (hooks/useOnClickOutside)
+   - 모바일 화면: 햄버거 메뉴 클릭 시 transition 구현
+   - 모바일 화면: 사이드 메뉴 화면 영역에서 백그라운드 영역 탭하면 사이드 바 close
+   - 백그라운드 영역 탭하면 기존 영역이 닫히는 hooks 함수 도입 (hooks/useOnClickOutside)
  
 윤예나
    - json-server 연결 후 카드에 데이터 렌더링
