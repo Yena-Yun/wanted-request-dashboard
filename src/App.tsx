@@ -8,11 +8,10 @@ const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);
 
   useEffect(() => {
-    const fetch = async () => {
+    (async () => {
       const getData = await getApiFunc();
       setData(getData);
-    };
-    fetch();
+    })();
   }, []);
 
   return (
