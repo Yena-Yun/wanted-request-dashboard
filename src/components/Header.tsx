@@ -41,6 +41,7 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
     padding: 25px 60px;
+    height: 12px;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
@@ -54,9 +55,9 @@ const LogoWrap = styled.div`
   height: 20px;
   display: flex;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
     height: 12px;
-    width: 91.8px;
+    width: 91.8xp;
   }
 `;
 
