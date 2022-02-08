@@ -31,7 +31,7 @@ const Modal = ({
 
   const divEl = useRef<HTMLDivElement>(null);
   const checkModalOutside = () => {
-    setTimeout(() => setClick(0), 10);
+    setTimeout(() => setClick(0), 200);
   };
   useOnClickOutside(divEl, checkModalOutside);
 
