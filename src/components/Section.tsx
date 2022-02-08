@@ -1,28 +1,15 @@
 import styled from 'styled-components';
 import { dataType } from 'types';
 import { Card, AllSelectBox, Toggle } from 'components';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { materialInterSection, methodInterSection } from 'utils';
 
-const Section = (props: { data?: dataType[], openMenu:boolean }) => {
+const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const { data } = props;
   const [methodSelect, setMethodSelect] = useState<string[]>([]);
   const [materialSelect, setMaterialSelect] = useState<string[]>([]);
   const [checked, setChecked] = useState<boolean>(false);
   const [filterData, setFilterData] = useState<dataType[] | undefined>([]);
-
-  const methodInterSection = useCallback((obj: dataType, arr: string[]) => {
-    for (let i = 0; i < arr.length; i++) {
-      if (!obj.method.includes(arr[i])) return false;
-    }
-    return true;
-  }, []);
-
-  const materialInterSection = useCallback((obj: dataType, arr: string[]) => {
-    for (let i = 0; i < arr.length; i++) {
-      if (!obj.material.includes(arr[i])) return false;
-    }
-    return true;
-  }, []);
 
   useEffect(() => {
     if (checked) {
@@ -37,18 +24,11 @@ const Section = (props: { data?: dataType[], openMenu:boolean }) => {
         .filter((el) => materialInterSection(el, materialSelect));
       setFilterData(toggleData);
     }
-  }, [
-    data,
-    checked,
-    methodSelect,
-    materialSelect,
-    methodInterSection,
-    materialInterSection,
-  ]);
+  }, [data, checked, methodSelect, materialSelect]);
 
   return (
     <Wrapper>
-      {props.openMenu && <Shadow openMenu={props.openMenu} /> }
+      {props.openMenu && <Shadow openMenu={props.openMenu} />}
       <Navbar>
         <Title>들어온 요청</Title>
         <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
@@ -59,8 +39,8 @@ const Section = (props: { data?: dataType[], openMenu:boolean }) => {
             materialSelect={materialSelect}
             setMaterialSelect={setMaterialSelect}
           />
-        <ToggleWrap>
-          <Toggle checked={checked} setChecked={setChecked} />
+          <ToggleWrap>
+            <Toggle checked={checked} setChecked={setChecked} />
             <ToggleText>상담 중인 요청만 보기</ToggleText>
           </ToggleWrap>
         </SelectorWrap>
@@ -81,7 +61,7 @@ const Wrapper = styled.div`
   padding: 40px 0;
 `;
 
-const Shadow = styled.div<{openMenu: boolean}>`
+const Shadow = styled.div<{ openMenu: boolean }>`
   width: 100%;
   height: 100%;
   background: rgb(0, 0, 0, 0.5);
@@ -90,7 +70,7 @@ const Shadow = styled.div<{openMenu: boolean}>`
   position: absolute;
   top: 0;
   left: 0;
-`
+`;
 
 const Navbar = styled.div`
   width: 1130px;
