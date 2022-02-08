@@ -1,23 +1,24 @@
-import React, { useRef, useState } from 'react';
-import { useOnClickOutside } from '../hooks/useOnClickOutside';
+
 import Sidebar from './Sidebar';
 import Burger from './Burger';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
 
-const Header = () => {
+interface MenuType {
+  openMenu:boolean,
+  setOpenMenu: ((openMenu:boolean) => void)
+  node: React.RefObject<HTMLDivElement>
+}
 
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const node = useRef<HTMLDivElement>(null);
-  useOnClickOutside(node, () => setOpenMenu(false));
+const Header = (props:MenuType) => {
+  
 
   return (
     <>
     <Wrapper>
-      <div  ref={node}>
-      <Burger openMenu={openMenu} setOpenMenu={setOpenMenu}/>
-      {openMenu &&
-      <Sidebar openMenu={openMenu} />}
+      <div  ref={props.node}>
+      <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu}/>
+      <Sidebar openMenu={props.openMenu} />
       </div>
       <LogoWrap>
         <Logo src={logo} alt='logo' />

@@ -4,8 +4,6 @@ import mobile_company from 'assets/mobile_company.png';
 
 const Sidebar = (props:{openMenu:boolean}) => {
 
-  console.log(props.openMenu);
-
   return (
     <Wrapper openMenu={props.openMenu} >
       <Header>
@@ -30,7 +28,8 @@ const Wrapper = styled.nav<{openMenu: boolean}>`
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 0.3s ease-out;
+  transition: all 0.5s ease-out;
+  /* transition: ${({ openMenu }) => openMenu ? 'all 0.5s ease-out;' : '0'}; */
 `;
 
 const Header = styled.div`
