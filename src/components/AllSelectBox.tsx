@@ -19,23 +19,10 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
   return (
     <Wrapper>
       <ButtonWrapper>
-        <SelectBox
-          type="method"
-          click={click}
-          setClick={setClick}
-          select={props.methodSelect}
-          setSelect={props.setMethodSelect}
-        />
-        <SelectBox
-          type="material"
-          click={click}
-          setClick={setClick}
-          select={props.materialSelect}
-          setSelect={props.setMaterialSelect}
-        />
+        <SelectBox type='method' click={click} setClick={setClick} select={props.methodSelect} setSelect={props.setMethodSelect} />
+        <SelectBox type='material' click={click} setClick={setClick} select={props.materialSelect} setSelect={props.setMaterialSelect} />
       </ButtonWrapper>
-      {(props.methodSelect.length !== 0 ||
-        props.materialSelect.length !== 0) && (
+      {(props.methodSelect.length !== 0 || props.materialSelect.length !== 0) && (
         <RefreshButton onClick={handleRefresh}>
           <Img src={img} />
           <Text>필터링 리셋</Text>
@@ -44,8 +31,6 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
     </Wrapper>
   );
 };
-
-export default AllSelectBox;
 
 const Wrapper = styled.div`
   display: flex;
@@ -73,3 +58,5 @@ const ButtonWrapper = styled.div`
   display: flex;
   margin-right: 15px;
 `;
+
+export default AllSelectBox;
