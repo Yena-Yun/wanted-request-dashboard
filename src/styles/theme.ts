@@ -1,46 +1,39 @@
 import { DefaultTheme } from 'styled-components';
 
-const size: DefaultTheme = {
-  4: '4px',
-  8: '8px',
-  10: '10px',
-  12: '12px',
-  14: '14px',
-  16: '16px',
-  20: '20px',
-  24: '24px',
-  28: '28px',
-  32: '32px',
+const flex: DefaultTheme = {
+  center: 'display: flex; justify-content: center; align-items: center;',
+  column: 'display: flex; flex-direction: column;',
 };
 
+const size: DefaultTheme = ['12px', '14px', '16px', '20px', '24px'];
+
 const weight: DefaultTheme = {
-  default: 400,
   medium: 500,
   bold: 700,
 };
 
 const color: DefaultTheme = {
-  gray: {
-    default: '#323D45',
-    sub: '#939FA5',
-    whiteDefault: '#ffffff',
-    light: '#E5E5E5',
-    bar: '#DADADA',
-  },
-  primary: {
-    default: '#1565C0',
-    light: '#2196F3',
-  },
-  warning: {
-    dark: '#FFA000',
-  },
+  default: '#323D45',
+  sub: '#939FA5',
+  white: '#ffffff',
+  light: '#E5E5E5',
+  primary: '#1565C0',
+  button: '#2196F3',
+  warning: '#FFA000',
+  extraLight: '#DADADA',
+};
+
+const radius: DefaultTheme = {
+  base: '4px',
+  button: '12px',
 };
 
 const media: DefaultTheme = {
   desktop: '1440px',
+  test: '768px', // 나중에 지울 예정
   mobile: '360px',
 };
 
-export const theme = { size, weight, color, media };
+export const theme = { flex, size, weight, color, radius, media };
 
 export type Theme = typeof theme;
