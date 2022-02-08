@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { BurgerMenuType } from 'types/BurgerMenuType';
 
 const Burger = (props: { openMenu: boolean; setOpenMenu: (openMenu: boolean) => void }) => {
   const { openMenu, setOpenMenu } = props;
@@ -21,8 +19,7 @@ const MenuWrap = styled.div<{ openMenu: boolean }>`
   height: 24px;
   top: 42%;
   left: 20px;
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column};
   background: transparent;
   border: none;
   cursor: pointer;
@@ -33,7 +30,7 @@ const MenuWrap = styled.div<{ openMenu: boolean }>`
     width: 24px;
     height: 2px;
     margin-bottom: 3px;
-    background: #dadada;
+    background: ${({ theme }) => theme.color.white};
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;

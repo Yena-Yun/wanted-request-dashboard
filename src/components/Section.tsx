@@ -19,16 +19,13 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
           </ToggleWrap>
         </SelectorWrap>
       </Navbar>
-      <Content>
-        {data ? data.map((el) => <Card key={el.id} item={el} />) : <NoContent>조건에 맞는 견적 요청이 없습니다.</NoContent>}
-      </Content>
+      <Content>{data && data.map((el) => <Card key={el.id} item={el} />)}</Content>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column};
   align-items: center;
   padding: 40px 0;
 `;
@@ -59,13 +56,13 @@ const Navbar = styled.div`
 const Title = styled.h1`
   font-size: 20px;
   line-height: 32px;
-  color: #323d45;
+  color: ${({ theme }) => theme.color.default};
 `;
 
 const Sub = styled.p`
   font-size: 16px;
   line-height: 24px;
-  color: #323d45;
+  color: ${({ theme }) => theme.color.default};
   margin-bottom: 32px;
 `;
 
@@ -85,8 +82,7 @@ const ToggleWrap = styled.div`
   align-items: center;
 
   @media screen and (max-width: 768px) {
-    margin-left: 8px;
-    margin-bottom: 8px;
+    margin: 0 8px;
   }
 `;
 

@@ -2,7 +2,7 @@ import Sidebar from './Sidebar';
 import Burger from './Burger';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
-import { BurgerMenuType } from 'types/burgerMenuType';
+import { BurgerMenuType } from 'types';
 
 const Header = (props: BurgerMenuType) => {
   return (
@@ -91,6 +91,7 @@ const CompanyName = styled.p`
   color: ${({ theme }) => theme.color.white};
   line-height: ${({ theme }) => theme.size[3]};
 `;
+
 const Divider = styled.div`
   width: 1px;
   height: 16px;
