@@ -138,7 +138,7 @@ const ToggleWrap = styled.div`
   align-items: center;
 
   @media screen and (max-width: 768px) {
-    margin: 0 0 0 8px;
+    margin: 45px 0 0 8px;
   }
 `;
 
