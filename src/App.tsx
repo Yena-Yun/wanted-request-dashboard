@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getApiFunc } from 'utils/getApi';
 import { dataType } from 'types';
-import './App.css';
 import Header from 'components/Header';
+import Card from 'components/Card';
 
 const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);
@@ -17,7 +17,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <Header />
-      {data && data.map((el) => <div key={el.id}>{el.title}</div>)}
+      {data && data.map((el) => <Card key={el.id} item={el} />)}
     </>
   );
 };
