@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { dataType } from 'types';
 import { Card, AllSelectBox, Toggle } from 'components';
 
-const Section = (props: { data?: dataType[] }) => {
+const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const { data } = props;
 
   return (
     <Wrapper>
+      {props.openMenu && <Shadow openMenu={props.openMenu} />}
       <Navbar>
         <Title>들어온 요청</Title>
         <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
@@ -30,6 +31,17 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
+`;
+
+const Shadow = styled.div<{ openMenu: boolean }>`
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, 0.5);
+  opacity: 0.9;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const Navbar = styled.div`
@@ -62,11 +74,20 @@ const SelectorWrap = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
+
+  @media screen and (max-width: 768px) {
+    display: initial;
+  }
 `;
 
 const ToggleWrap = styled.div`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
 `;
 
 const ToggleText = styled.p`
