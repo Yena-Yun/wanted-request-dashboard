@@ -8,8 +8,11 @@ const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
-  const node = useRef<HTMLDivElement>(null);
-  useOnClickOutside(node, () => setOpenMenu(false));
+  const divEl = useRef<HTMLDivElement>(null);
+  const checkModalOutside = () => {
+    setOpenMenu(false);
+  }
+  useOnClickOutside(divEl, checkModalOutside);
 
   useEffect(() => {
     (async () => {
@@ -20,7 +23,7 @@ const App = (): JSX.Element => {
 
   return (
     <>
-      <Header node={node} openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <Header divEl={divEl} openMenu={openMenu} setOpenMenu={setOpenMenu} />
       <Section data={data} openMenu={openMenu}></Section>
     </>
   );

@@ -25,16 +25,29 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
         <ArrowDownImg src={props.select.length ? activeImg : img} />
       </Wrapper>
 
-      {props.type === 'method' && props.click === 1 && <Modal type={'method'} setSelect={props.setSelect} select={props.select} />}
+      {props.type === "method" && props.click === 1 && (
+        <Modal
+          setClick={props.setClick}
+          type={"method"}
+          setSelect={props.setSelect}
+          select={props.select}
+        />
+      )}
 
-      {props.type === 'material' && props.click === 2 && <Modal type={'material'} setSelect={props.setSelect} select={props.select} />}
+      {props.type === "material" && props.click === 2 && (
+        <Modal
+          setClick={props.setClick}
+          type={"material"}
+          setSelect={props.setSelect}
+          select={props.select}
+        />
+      )}
     </Container>
   );
 };
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column}
   position: relative;
   z-index: 0;
   margin-right: 5px;
@@ -77,8 +90,8 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.size[0]};
+  font-weight: ${({ theme }) => theme.weight.medium};
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;

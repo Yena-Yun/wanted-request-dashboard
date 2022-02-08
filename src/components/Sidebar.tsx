@@ -18,10 +18,9 @@ const Sidebar = (props:{openMenu:boolean}) => {
 };
 
 const Wrapper = styled.nav<{openMenu: boolean}>`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column};
   height: 730px;
-  background: #FFFFFF;
+  background: ${({ theme }) => theme.color.white};
   transform: ${({ openMenu }) => openMenu ? 'translateX(0%)' : 'translateX(-100%)'};
   height: 100vh;
   text-align: left;
