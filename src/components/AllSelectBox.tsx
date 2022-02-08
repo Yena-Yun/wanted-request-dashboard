@@ -1,14 +1,54 @@
-import { useState } from "react";
-import SelectBox from "./SelectBox";
-import styled from "styled-components";
-import img from "assets/refresh.png";
+import { useState } from 'react';
+import SelectBox from './SelectBox';
+import styled from 'styled-components';
+import img from 'assets/refresh.png';
+
+interface AllSelectBoxProps {
+  methodSelect: string[];
+  setMethodSelect: (method: string[]) => void;
+  materialSelect: string[];
+  setMaterialSelect: (method: string[]) => void;
+}
+const AllSelectBox = (props: AllSelectBoxProps) => {
+  const [click, setClick] = useState<number>(0);
+
+  const handleRefresh = () => {
+    props.setMethodSelect([]);
+    props.setMaterialSelect([]);
+  };
+  return (
+    <Wrapper>
+      <ButtonWrapper>
+        <SelectBox
+          type="method"
+          click={click}
+          setClick={setClick}
+          select={props.methodSelect}
+          setSelect={props.setMethodSelect}
+        />
+        <SelectBox
+          type="material"
+          click={click}
+          setClick={setClick}
+          select={props.materialSelect}
+          setSelect={props.setMaterialSelect}
+        />
+      </ButtonWrapper>
+      {(props.methodSelect.length !== 0 ||
+        props.materialSelect.length !== 0) && (
+        <RefreshButton onClick={handleRefresh}>
+          <Img src={img} />
+          <Text>필터링 리셋</Text>
+        </RefreshButton>
+      )}
+    </Wrapper>
+  );
+};
+
+export default AllSelectBox;
 
 const Wrapper = styled.div`
   display: flex;
-
-  @media screen and (max-width: 768px) {
-    margin-bottom: 24px;
-  }
 `;
 
 const Text = styled.div`
@@ -31,46 +71,5 @@ const RefreshButton = styled.div`
 
 const ButtonWrapper = styled.div`
   display: flex;
-  align-items: center;
   margin-right: 15px;
 `;
-
-const AllSelectBox = () => {
-  const [click, setClick] = useState<number>(0);
-
-  const [methodSelect, setMethodSelect] = useState<string[]>([]);
-  const [materialSelect, setMaterialSelect] = useState<string[]>([]);
-
-  const handleRefresh = () => {
-    setMethodSelect([]);
-    setMaterialSelect([]);
-  };
-  return (
-    <Wrapper>
-      <ButtonWrapper>
-        <SelectBox
-          type="method"
-          click={click}
-          setClick={setClick}
-          select={methodSelect}
-          setSelect={setMethodSelect}
-        />
-        <SelectBox
-          type="material"
-          click={click}
-          setClick={setClick}
-          select={materialSelect}
-          setSelect={setMaterialSelect}
-        />
-      </ButtonWrapper>
-      {(methodSelect.length !== 0 || materialSelect.length !== 0) && (
-        <RefreshButton onClick={handleRefresh}>
-          <Img src={img} />
-          <Text>필터링 리셋</Text>
-        </RefreshButton>
-      )}
-    </Wrapper>
-  );
-};
-
-export default AllSelectBox;

@@ -1,9 +1,30 @@
 import styled from 'styled-components';
 import { dataType } from 'types';
 import { Card, AllSelectBox, Toggle } from 'components';
+import { useEffect, useState } from 'react';
+import { materialInterSection, methodInterSection } from 'utils';
 
 const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const { data } = props;
+  const [methodSelect, setMethodSelect] = useState<string[]>([]);
+  const [materialSelect, setMaterialSelect] = useState<string[]>([]);
+  const [checked, setChecked] = useState<boolean>(false);
+  const [filterData, setFilterData] = useState<dataType[] | undefined>([]);
+
+  useEffect(() => {
+    if (checked) {
+      const toggleData = data
+        ?.filter((el) => el.status === '상담중')
+        .filter((el) => methodInterSection(el, methodSelect))
+        .filter((el) => materialInterSection(el, materialSelect));
+      setFilterData(toggleData);
+    } else {
+      const toggleData = data
+        ?.filter((el) => methodInterSection(el, methodSelect))
+        .filter((el) => materialInterSection(el, materialSelect));
+      setFilterData(toggleData);
+    }
+  }, [data, checked, methodSelect, materialSelect]);
 
   return (
     <Wrapper>
@@ -12,14 +33,25 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
         <Title>들어온 요청</Title>
         <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
         <SelectorWrap>
-          <AllSelectBox />
+          <AllSelectBox
+            methodSelect={methodSelect}
+            setMethodSelect={setMethodSelect}
+            materialSelect={materialSelect}
+            setMaterialSelect={setMaterialSelect}
+          />
           <ToggleWrap>
-            <Toggle />
+            <Toggle checked={checked} setChecked={setChecked} />
             <ToggleText>상담 중인 요청만 보기</ToggleText>
           </ToggleWrap>
         </SelectorWrap>
       </Navbar>
-      <Content>{data && data.map((el) => <Card key={el.id} item={el} />)}</Content>
+      <Content>
+        {filterData?.length ? (
+          filterData.map((el) => <Card key={el.id} item={el} />)
+        ) : (
+          <NoContent>조건에 맞는 견적 요청이 없습니다.</NoContent>
+        )}
+      </Content>
     </Wrapper>
   );
 };
@@ -104,6 +136,9 @@ const NoContent = styled.div`
   height: 100px;
   border: 1px solid #c2c2c2;
   color: #939fa5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media screen and (max-width: 1142px) {
     width: 750px;

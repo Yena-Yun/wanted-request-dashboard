@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-const Toggle = () => {
-  const [checked, setChecked] = useState<boolean>(false);
-
+interface ToggleProps {
+  checked: boolean;
+  setChecked: (checked: boolean) => void;
+}
+const Toggle = (props: ToggleProps) => {
   return (
     <ElSwitch>
-      <ToggleInput type='checkbox' checked={checked} onChange={() => setChecked(!checked)} />
-      <Slider toggled={checked} />
+      <ToggleInput
+        type="checkbox"
+        checked={props.checked}
+        onChange={() => props.setChecked(!props.checked)}
+      />
+      <Slider toggled={props.checked} />
     </ElSwitch>
   );
 };
@@ -23,7 +29,8 @@ const Slider = styled.span`
   height: 14px;
   transition: 0.4s;
   border-radius: 2.2rem;
-  background: ${(props: { toggled: boolean }) => (props.toggled ? '#BBDEFB' : '#C2C2C2')};
+  background: ${(props: { toggled: boolean }) =>
+    props.toggled ? '#BBDEFB' : '#C2C2C2'};
 
   &::before {
     position: absolute;
