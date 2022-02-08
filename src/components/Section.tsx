@@ -153,8 +153,7 @@ const ToggleText = styled.p`
 `;
 
 const Content = styled.div`
-  display: flex;
-  align-items: center;
+  ${({ theme }) => theme.flex.center}
   flex-wrap: wrap;
 
   @media screen and (min-width: 1440px) {
