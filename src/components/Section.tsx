@@ -46,9 +46,11 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
         </SelectorWrap>
       </Navbar>
       <Content>
-        {filterData?.map((el) => (
-          <Card key={el.id} item={el} />
-        ))}
+        {filterData?.length ? (
+          filterData.map((el) => <Card key={el.id} item={el} />)
+        ) : (
+          <NoContent>조건에 맞는 견적 요청이 없습니다.</NoContent>
+        )}
       </Content>
     </Wrapper>
   );
@@ -131,4 +133,21 @@ const Content = styled.div`
   align-items: center;
 `;
 
+const NoContent = styled.div`
+  width: 1130px;
+  height: 100px;
+  border: 1px solid #c2c2c2;
+  color: #939fa5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 1142px) {
+    width: 750px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 376px;
+  }
+`;
 export default Section;
