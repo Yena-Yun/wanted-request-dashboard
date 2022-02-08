@@ -49,8 +49,7 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
 };
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column}
   position: relative;
   z-index: 0;
   margin-right: 5px;
@@ -80,8 +79,8 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.size[0]};
+  font-weight: ${({ theme }) => theme.weight.medium};
 `;
 
 const ArrowDownImg = styled.img`

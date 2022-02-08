@@ -25,8 +25,7 @@ const Section = (props: { data?: dataType[], openMenu:boolean }) => {
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column};
   align-items: center;
   padding: 40px 0;
 `;
