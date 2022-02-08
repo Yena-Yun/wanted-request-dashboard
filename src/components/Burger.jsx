@@ -18,7 +18,7 @@ const MenuWrap = styled.div`
 
   position: absolute;
   height: 24px;
-  top: 42%;
+  width: 24px;
   left: 20px;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,6 @@ const MenuWrap = styled.div`
   z-index: 10;
 
   span {
-    width: 24px;
     height: 2px;
     margin-bottom: 3px;
     background: #dadada;

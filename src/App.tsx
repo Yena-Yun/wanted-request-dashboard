@@ -21,7 +21,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <Header node={node} openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      <Section data={data}></Section>
+      <Section data={data} openMenu={openMenu}></Section>
     </>
   );
 };
