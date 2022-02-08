@@ -1,4 +1,6 @@
-const size = {
+import { DefaultTheme } from 'styled-components';
+
+const size: DefaultTheme = {
   4: '4px',
   8: '8px',
   10: '10px',
@@ -11,17 +13,18 @@ const size = {
   32: '32px',
 };
 
-const weight = {
+const weight: DefaultTheme = {
   default: 400,
   medium: 500,
   bold: 700,
 };
 
-const color = {
+const color: DefaultTheme = {
   gray: {
     default: '#323D45',
     sub: '#939FA5',
     whiteDefault: '#ffffff',
+    light: '#E5E5E5',
     bar: '#DADADA',
   },
   primary: {
@@ -33,7 +36,7 @@ const color = {
   },
 };
 
-const media = {
+const media: DefaultTheme = {
   desktop: '1440px',
   mobile: '360px',
 };

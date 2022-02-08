@@ -50,7 +50,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid ${({ theme }) => theme.color.gray.light};
   border-radius: 4px;
   margin: 30px 40px;
 `;
@@ -69,7 +69,7 @@ const Title = styled.h2`
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #323d45;
+  color: ${({ theme }) => theme.color.gray.default};
   margin-bottom: 4px;
 `;
 
@@ -77,9 +77,9 @@ const Badge = styled.div<{ status: string }>`
   display: ${(props) => (props.status === '상담중' ? 'block' : 'none')};
   height: 24px;
   padding: 2px 8px;
-  border: 1px solid #ffa000;
+  border: 1px solid ${({ theme }) => theme.color.warning.dark};
   border-radius: 12px;
-  color: #ffa000;
+  color: ${({ theme }) => theme.color.warning.dark};
   font-weight: 500;
   font-size: 12px;
 `;
@@ -88,21 +88,21 @@ const Client = styled.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  color: #323d45;
+  color: ${({ theme }) => theme.color.gray.default};
   margin-bottom: 24px;
 `;
 
 const Due = styled.span`
   font-size: 14px;
   line-height: 20px;
-  color: #939fa5;
+  color: ${({ theme }) => theme.color.gray.sub};
   margin-bottom: 16px;
 `;
 
 const Divider = styled.div`
   width: 334px;
   height: 1px;
-  background: #e5e5e5;
+  background: ${({ theme }) => theme.color.gray.light};
   margin: 0 auto 32px;
 `;
 
@@ -125,7 +125,7 @@ const Wrap = styled.div`
 const Label = styled.div`
   width: 70px;
   height: 20px;
-  color: #323d45;
+  color: ${({ theme }) => theme.color.gray.default};
   font-size: 14px;
   line-height: 20px;
   margin-right: 32px;
@@ -144,9 +144,9 @@ const ButtonWrap = styled.div`
 const ShowHistory = styled.div`
   padding: 6px 12px;
   margin-right: 8px;
-  background: #2196f3;
+  background: ${({ theme }) => theme.color.primary.light};
   font-size: 14px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.color.gray.whiteDefault};
   line-height: 20px;
   font-weight: 500;
   display: flex;
@@ -159,8 +159,8 @@ const Chatting = styled.div`
   padding: 6px 12px;
   font-size: 14px;
   font-weight: 500;
-  color: #2196f3;
-  border: 1px solid #2196f3;
+  color: ${({ theme }) => theme.color.primary.light};
+  border: 1px solid ${({ theme }) => theme.color.primary.light};
   display: flex;
   justify-content: center;
   align-items: center;
