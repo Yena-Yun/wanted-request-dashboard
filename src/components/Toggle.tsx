@@ -1,18 +1,14 @@
-import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 interface ToggleProps {
   checked: boolean;
   setChecked: (checked: boolean) => void;
 }
+
 const Toggle = (props: ToggleProps) => {
   return (
     <ElSwitch>
-      <ToggleInput
-        type="checkbox"
-        checked={props.checked}
-        onChange={() => props.setChecked(!props.checked)}
-      />
+      <ToggleInput type='checkbox' checked={props.checked} onChange={() => props.setChecked(!props.checked)} />
       <Slider toggled={props.checked} />
     </ElSwitch>
   );
@@ -29,8 +25,13 @@ const Slider = styled.span`
   height: 14px;
   transition: 0.4s;
   border-radius: 2.2rem;
-  background: ${(props: { toggled: boolean }) =>
-    props.toggled ? '#BBDEFB' : '#C2C2C2'};
+  background: ${(props: { toggled: boolean }) => (props.toggled ? '#BBDEFB' : '#C2C2C2')};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    width: 20px;
+    height: 8px;
+    top: 6px;
+  }
 
   &::before {
     position: absolute;
@@ -43,11 +44,23 @@ const Slider = styled.span`
     background: ${(props) => (props.toggled ? '#2196F3' : '#F5F5F5')};
     transition: 0.4s;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
     ${(props) =>
       props.toggled &&
       css`
         transform: translateX(26px);
       `}
+
+    @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+      width: 14px;
+      height: 14px;
+
+      ${(props) =>
+        props.toggled &&
+        css`
+          transform: translateX(20px);
+        `}
+    }
   }
 `;
 
@@ -55,8 +68,13 @@ const ElSwitch = styled.label`
   position: relative;
   display: inline-block;
   width: 2.4rem;
-  height: 1rem;
+  height: 16px;
   margin-right: 16px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    margin-right: -4px;
+    margin-top: -1px;
+  }
 `;
 
 const ToggleInput = styled.input`

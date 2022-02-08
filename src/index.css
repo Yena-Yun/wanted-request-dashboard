@@ -9,6 +9,7 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
 @font-face {
@@ -17,6 +18,7 @@ body {
   src: url('./styles/fonts/NotoSansKR-Regular.otf') format('woff2'), url('./styles/fonts/NotoSansKR-Regular.otf') format('woff'),
     url('./styles/fonts/NotoSansKR-Regular.otf') format('truetype');
 }
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-weight: 500;

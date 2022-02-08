@@ -8,6 +8,7 @@ const flex: DefaultTheme = {
 const size: DefaultTheme = ['12px', '14px', '16px', '20px', '24px'];
 
 const weight: DefaultTheme = {
+  regular: 400,
   medium: 500,
   bold: 700,
 };
@@ -30,7 +31,7 @@ const radius: DefaultTheme = {
 
 const media: DefaultTheme = {
   desktop: '1440px',
-  test: '768px', // 나중에 지울 예정
+  tablet: '768px',
   mobile: '360px',
 };
 
