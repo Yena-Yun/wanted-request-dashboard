@@ -1,5 +1,10 @@
-export interface BurgerMenuType {
+import { RefObject } from 'react';
+
+export interface BurgerMenuType extends refType{
   openMenu:boolean,
   setOpenMenu: ((openMenu:boolean) => void)
-  node: React.RefObject<HTMLDivElement>
+}
+
+export interface refType {
+  divEl: RefObject<HTMLDivElement>
 }

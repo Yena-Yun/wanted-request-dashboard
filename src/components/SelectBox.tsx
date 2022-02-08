@@ -31,6 +31,7 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
 
       {props.type === "method" && props.click === 1 && (
         <Modal
+          setClick={props.setClick}
           type={"method"}
           setSelect={props.setSelect}
           select={props.select}
@@ -39,6 +40,7 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
 
       {props.type === "material" && props.click === 2 && (
         <Modal
+          setClick={props.setClick}
           type={"material"}
           setSelect={props.setSelect}
           select={props.select}

@@ -1,6 +1,6 @@
 
 import Sidebar from './Sidebar';
-import Burger from './Burger';
+import {Burger} from 'components';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
 import { BurgerMenuType } from 'types/burgerMenuType';
@@ -10,7 +10,7 @@ const Header = (props:BurgerMenuType) => {
   return (
     <>
     <Wrapper>
-      <div  ref={props.node}>
+      <div ref={props.divEl}>
         <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu}/>
         <Sidebar openMenu={props.openMenu} />
       <LogoWrap>

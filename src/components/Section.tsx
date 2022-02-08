@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { dataType } from 'types';
 import { Card, AllSelectBox, Toggle } from 'components';
-import { useCallback, useEffect, useState } from 'react';
+import { RefObject, useCallback, useEffect, useState } from 'react';
 
-const Section = (props: { data?: dataType[], openMenu:boolean }) => {
+const Section = (props: { data?: dataType[], openMenu:boolean}) => {
   const { data } = props;
   const [methodSelect, setMethodSelect] = useState<string[]>([]);
   const [materialSelect, setMaterialSelect] = useState<string[]>([]);
