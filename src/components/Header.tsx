@@ -1,39 +1,31 @@
-
 import Sidebar from './Sidebar';
 import Burger from './Burger';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
+import { BurgerMenuType } from 'types';
 
-interface MenuType {
-  openMenu:boolean,
-  setOpenMenu: ((openMenu:boolean) => void)
-  node: React.RefObject<HTMLDivElement>
-}
-
-const Header = (props:MenuType) => {
-  
-
+const Header = (props: BurgerMenuType) => {
   return (
     <>
-    <Wrapper>
-      <div  ref={props.node}>
-      <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu}/>
-      <Sidebar openMenu={props.openMenu} />
-      </div>
-      <LogoWrap>
-        <Logo src={logo} alt='logo' />
-      </LogoWrap>
-      <GnbWrap show>
-        <CompanyWrap>
-          <CompanyImgWrap>
-            <Company src={company} alt='processor' />
-          </CompanyImgWrap>
-          <CompanyName>A 가공 업체</CompanyName>
-        </CompanyWrap>
-        <Divider />
-        <LogOut>로그아웃</LogOut>
-      </GnbWrap>
-    </Wrapper>
+      <Wrapper>
+        <div ref={props.node}>
+          <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu} />
+          <Sidebar openMenu={props.openMenu} />
+        </div>
+        <LogoWrap>
+          <Logo src={logo} alt='logo' />
+        </LogoWrap>
+        <GnbWrap show>
+          <CompanyWrap>
+            <CompanyImgWrap>
+              <Company src={company} alt='processor' />
+            </CompanyImgWrap>
+            <CompanyName>A 가공 업체</CompanyName>
+          </CompanyWrap>
+          <Divider />
+          <LogOut>로그아웃</LogOut>
+        </GnbWrap>
+      </Wrapper>
     </>
   );
 };
@@ -50,7 +42,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.media.test}) {
     height: 70px;
     padding: 16px 60px;
-  }  
+  }
 `;
 
 const LogoWrap = styled.div`

@@ -12,10 +12,15 @@ const Section = (props: { data?: dataType[] }) => {
         <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
         <SelectorWrap>
           <AllSelectBox />
-          <Toggle />
+          <ToggleWrap>
+            <Toggle />
+            <ToggleText>상담 중인 요청만 보기</ToggleText>
+          </ToggleWrap>
         </SelectorWrap>
       </Navbar>
-      <Content>{data && data.map((el) => <Card key={el.id} item={el} />)}</Content>
+      <Content>
+        {data ? data.map((el) => <Card key={el.id} item={el} />) : <NoContent>조건에 맞는 견적 요청이 없습니다.</NoContent>}
+      </Content>
     </Wrapper>
   );
 };
@@ -59,11 +64,37 @@ const SelectorWrap = styled.div`
   margin-bottom: 32px;
 `;
 
+const ToggleWrap = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ToggleText = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+  color: #323d45;
+`;
+
 const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+`;
+
+const NoContent = styled.div`
+  width: 1130px;
+  height: 100px;
+  border: 1px solid #c2c2c2;
+  color: #939fa5;
+
+  @media screen and (max-width: 1142px) {
+    width: 750px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 376px;
+  }
 `;
 
 export default Section;
