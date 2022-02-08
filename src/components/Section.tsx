@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { dataType } from 'types';
-import { Card, AllSelectBox } from 'components';
+import { Card, AllSelectBox, Toggle } from 'components';
 
 const Section = (props: { data?: dataType[] }) => {
   const { data } = props;
@@ -10,9 +10,10 @@ const Section = (props: { data?: dataType[] }) => {
       <Navbar>
         <Title>들어온 요청</Title>
         <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
-        <div>
+        <SelectorWrap>
           <AllSelectBox />
-        </div>
+          <Toggle />
+        </SelectorWrap>
       </Navbar>
       <Content>{data && data.map((el) => <Card key={el.id} item={el} />)}</Content>
     </Wrapper>
@@ -48,6 +49,10 @@ const Sub = styled.p`
   font-size: 16px;
   line-height: 24px;
   color: #323d45;
+`;
+
+const SelectorWrap = styled.div`
+  display: flex;
 `;
 
 const Content = styled.div`

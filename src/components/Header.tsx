@@ -1,14 +1,25 @@
+
+import Sidebar from './Sidebar';
+import Burger from './Burger';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
 
-const Header = () => {
+interface MenuType {
+  openMenu:boolean,
+  setOpenMenu: ((openMenu:boolean) => void)
+  node: React.RefObject<HTMLDivElement>
+}
+
+const Header = (props:MenuType) => {
+  
+
   return (
+    <>
     <Wrapper>
-      <MenuWrap show>
-        <Bar />
-        <Bar />
-        <Bar />
-      </MenuWrap>
+      <div  ref={props.node}>
+      <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu}/>
+      <Sidebar openMenu={props.openMenu} />
+      </div>
       <LogoWrap>
         <Logo src={logo} alt='logo' />
       </LogoWrap>
@@ -23,6 +34,7 @@ const Header = () => {
         <LogOut>로그아웃</LogOut>
       </GnbWrap>
     </Wrapper>
+    </>
   );
 };
 
@@ -38,7 +50,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.media.test}) {
     height: 70px;
     padding: 16px 60px;
-  }
+  }  
 `;
 
 const LogoWrap = styled.div`
@@ -58,6 +70,9 @@ const MenuWrap = styled('div')<{ show: boolean }>`
   @media screen and (max-width: ${({ theme }) => theme.media.test}) {
     ${(props) => props.show && 'display: block'}
   }
+
+  transform: translateX(0%);
+  transition: transform 2s;
 `;
 
 const Bar = styled.div`
