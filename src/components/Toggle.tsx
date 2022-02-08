@@ -3,14 +3,25 @@ import styled, { css } from 'styled-components';
 interface ToggleProps {
   checked: boolean;
   setChecked: (checked: boolean) => void;
+  click: number;
+  setClick: (click: number) => void;
 }
 
 const Toggle = (props: ToggleProps) => {
+  const browserSize = window.innerWidth;
   return (
-    <ElSwitch>
-      <ToggleInput type='checkbox' checked={props.checked} onChange={() => props.setChecked(!props.checked)} />
-      <Slider toggled={props.checked} />
-    </ElSwitch>
+    <>
+      {(props.click !== 1 || browserSize >= 500) && (
+        <ElSwitch>
+          <ToggleInput
+            type="checkbox"
+            checked={props.checked}
+            onChange={() => props.setChecked(!props.checked)}
+          />
+          <Slider toggled={props.checked} />
+        </ElSwitch>
+      )}
+    </>
   );
 };
 
@@ -25,14 +36,14 @@ const Slider = styled.span`
   height: 14px;
   transition: 0.4s;
   border-radius: 2.2rem;
-  background: ${(props: { toggled: boolean }) => (props.toggled ? '#BBDEFB' : '#C2C2C2')};
+  background: ${(props: { toggled: boolean }) =>
+    props.toggled ? '#BBDEFB' : '#C2C2C2'};
   z-index: -1;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     width: 20px;
     height: 8px;
     top: 6px;
-    
   }
 
   &::before {
@@ -46,8 +57,6 @@ const Slider = styled.span`
     background: ${(props) => (props.toggled ? '#2196F3' : '#F5F5F5')};
     transition: 0.4s;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    
-    
 
     ${(props) =>
       props.toggled &&
@@ -84,6 +93,9 @@ const ToggleInput = styled.input`
   opacity: 0;
   width: 0;
   height: 0;
+  point-events: none;
 `;
 
 export default Toggle;
+
+// point-evnets: ${({ click }: { click: number }) => click === 1 && 'none'};

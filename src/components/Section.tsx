@@ -10,6 +10,7 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const [materialSelect, setMaterialSelect] = useState<string[]>([]);
   const [checked, setChecked] = useState<boolean>(false);
   const [filterData, setFilterData] = useState<dataType[] | undefined>([]);
+  const [click, setClick] = useState<number>(0);
 
   useEffect(() => {
     if (checked) {
@@ -38,9 +39,16 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
             setMethodSelect={setMethodSelect}
             materialSelect={materialSelect}
             setMaterialSelect={setMaterialSelect}
+            click={click}
+            setClick={setClick}
           />
           <ToggleWrap>
-            <Toggle checked={checked} setChecked={setChecked} />
+            <Toggle
+              checked={checked}
+              setChecked={setChecked}
+              click={click}
+              setClick={setClick}
+            />
             <ToggleText>상담 중인 요청만 보기</ToggleText>
           </ToggleWrap>
         </SelectorWrap>
@@ -138,7 +146,7 @@ const ToggleWrap = styled.div`
   align-items: center;
 
   @media screen and (max-width: 768px) {
-    margin: 45px 0 0 8px;
+    margin: 0 0 0 8px;
   }
 `;
 
@@ -164,6 +172,9 @@ const Content = styled.div`
 const NoContent = styled.div`
   width: 1130px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid ${({ theme }) => theme.color.noContent};
   color: ${({ theme }) => theme.color.sub} ${({ theme }) => theme.flex.center}
     @media screen and (max-width: 1142px) {

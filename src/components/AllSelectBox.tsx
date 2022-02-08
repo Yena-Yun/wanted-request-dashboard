@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SelectBox from './SelectBox';
 import styled from 'styled-components';
 import img from 'assets/refresh.png';
@@ -8,21 +8,35 @@ interface AllSelectBoxProps {
   setMethodSelect: (method: string[]) => void;
   materialSelect: string[];
   setMaterialSelect: (method: string[]) => void;
+  click: number;
+  setClick: (click: number) => void;
 }
 const AllSelectBox = (props: AllSelectBoxProps) => {
-  const [click, setClick] = useState<number>(0);
-
   const handleRefresh = () => {
     props.setMethodSelect([]);
     props.setMaterialSelect([]);
   };
+
   return (
     <Wrapper>
       <ButtonWrapper>
-        <SelectBox type='method' click={click} setClick={setClick} select={props.methodSelect} setSelect={props.setMethodSelect} />
-        <SelectBox type='material' click={click} setClick={setClick} select={props.materialSelect} setSelect={props.setMaterialSelect} />
+        <SelectBox
+          type="method"
+          click={props.click}
+          setClick={props.setClick}
+          select={props.methodSelect}
+          setSelect={props.setMethodSelect}
+        />
+        <SelectBox
+          type="material"
+          click={props.click}
+          setClick={props.setClick}
+          select={props.materialSelect}
+          setSelect={props.setMaterialSelect}
+        />
       </ButtonWrapper>
-      {(props.methodSelect.length !== 0 || props.materialSelect.length !== 0) && (
+      {(props.methodSelect.length !== 0 ||
+        props.materialSelect.length !== 0) && (
         <RefreshButton onClick={handleRefresh}>
           <Img src={img} />
           <Text>필터링 리셋</Text>

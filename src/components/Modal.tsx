@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import checkIcon from 'assets/check.png';
-import { useRef } from 'react';
-import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 interface ModalProps {
   type: string;
@@ -29,14 +27,8 @@ const Modal = ({
       : setSelect([...select, el]);
   };
 
-  const divEl = useRef<HTMLDivElement>(null);
-  const checkModalOutside = () => {
-    setTimeout(() => setClick(0), 200);
-  };
-  useOnClickOutside(divEl, checkModalOutside);
-
   return (
-    <SelectBox ref={divEl}>
+    <SelectBox>
       {list.map((el) => (
         <Select key={el}>
           <Input
