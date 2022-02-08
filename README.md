@@ -1,7 +1,7 @@
 <h1>원티드: 요청서 대시보드 구현</h1>
 
 ## 🎈 배포
-🔗 **링크**:
+🔗 **링크**: https://wanted-request-dashboard.herokuapp.com/
 
 <br>
 
@@ -22,7 +22,9 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Styled-components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
-###✨ 전체 구현사항
+<br>
+
+## ✨ 전체 구현사항
     
 안병진,이지용
     
