@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import checkIcon from "assets/check.png";
+import { RefObject, useRef } from 'react';
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 interface ModalProps {
   type: string;
   setSelect: (select: string[]) => void;
   select: string[] | [];
+  setClick: (select: number) => void;
 }
 
-const Modal = ({ type, setSelect, select }: ModalProps): JSX.Element => {
+const Modal = ({ type, setSelect, select, setClick }: ModalProps): JSX.Element => {
   const method: string[] = ["밀링", "선반"];
   const material: string[] = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
   let list: string[] = method;
@@ -21,8 +24,15 @@ const Modal = ({ type, setSelect, select }: ModalProps): JSX.Element => {
       : setSelect([...select, el]);
   };
 
+  const divEl = useRef<HTMLDivElement>(null);
+  const checkModalOutside = () => {
+    setClick(0);
+  }
+  useOnClickOutside(divEl, checkModalOutside);
+
   return (
-    <SelectBox>
+    
+    <SelectBox ref={divEl}>
       {list.map((el) => (
         <Select key={el}>
           <Input
