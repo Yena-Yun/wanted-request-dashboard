@@ -1,8 +1,7 @@
 <h1>wanted-request-dashboard<</h1>
 
 ## 🚀 배포
-🔗 **과제물**(netlify): https://hyo-choi-wanted-ggumim.netlify.app/  
-🔗 **Storybook**: https://develop--61fbd18d695077004a3c55d8.chromatic.com/
+🔗 **링크**:
 
 <br>
 
