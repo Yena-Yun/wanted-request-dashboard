@@ -1,15 +1,18 @@
-import styled from 'styled-components';
-import checkIcon from 'assets/check.png';
+import styled from "styled-components";
+import checkIcon from "assets/check.png";
+import { useRef } from 'react';
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 interface ModalProps {
   type: string;
   setSelect: (select: string[]) => void;
   select: string[] | [];
+  setClick: (select: number) => void;
 }
 
-const Modal = ({ type, setSelect, select }: ModalProps): JSX.Element => {
-  const method: string[] = ['밀링', '선반'];
-  const material: string[] = ['알루미늄', '탄소강', '구리', '합금강', '강철'];
+const Modal = ({ type, setSelect, select, setClick }: ModalProps): JSX.Element => {
+  const method: string[] = ["밀링", "선반"];
+  const material: string[] = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
   let list: string[] = method;
   if (type === 'material') {
     list = material;
@@ -19,8 +22,15 @@ const Modal = ({ type, setSelect, select }: ModalProps): JSX.Element => {
     select.includes(el as never) ? setSelect(select.filter((e) => e !== el)) : setSelect([...select, el]);
   };
 
+  const divEl = useRef<HTMLDivElement>(null);
+  const checkModalOutside = () => {
+    setClick(0);
+  }
+  useOnClickOutside(divEl, checkModalOutside);
+
   return (
-    <SelectBox>
+    
+    <SelectBox ref={divEl}>
       {list.map((el) => (
         <Select key={el}>
           <Input type='checkbox' id={el} value={el} checked={select.includes(el as never)} readOnly />

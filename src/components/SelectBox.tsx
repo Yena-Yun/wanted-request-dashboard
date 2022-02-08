@@ -25,9 +25,23 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
         <ArrowDownImg src={props.select.length ? activeImg : img} />
       </Wrapper>
 
-      {props.type === 'method' && props.click === 1 && <Modal type={'method'} setSelect={props.setSelect} select={props.select} />}
+      {props.type === "method" && props.click === 1 && (
+        <Modal
+          setClick={props.setClick}
+          type={"method"}
+          setSelect={props.setSelect}
+          select={props.select}
+        />
+      )}
 
-      {props.type === 'material' && props.click === 2 && <Modal type={'material'} setSelect={props.setSelect} select={props.select} />}
+      {props.type === "material" && props.click === 2 && (
+        <Modal
+          setClick={props.setClick}
+          type={"material"}
+          setSelect={props.setSelect}
+          select={props.select}
+        />
+      )}
     </Container>
   );
 };
