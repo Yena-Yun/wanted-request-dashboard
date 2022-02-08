@@ -9,7 +9,7 @@ const App = (): JSX.Element => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const node = useRef<HTMLDivElement>(null);
-  useOnClickOutside(node, () => (setOpenMenu));
+  useOnClickOutside(node, () => setOpenMenu(false));
 
   useEffect(() => {
     (async () => {

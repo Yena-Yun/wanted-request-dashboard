@@ -21,7 +21,7 @@ const Wrapper = styled.nav<{openMenu: boolean}>`
   display: flex;
   flex-direction: column;
   height: 730px;
-  background: red;
+  background: #FFFFFF;
   transform: ${({ openMenu }) => openMenu ? 'translateX(0%)' : 'translateX(-100%)'};
   height: 100vh;
   text-align: left;
@@ -29,7 +29,6 @@ const Wrapper = styled.nav<{openMenu: boolean}>`
   top: 0;
   left: 0;
   transition: all 0.5s ease-out;
-  /* transition: ${({ openMenu }) => openMenu ? 'all 0.5s ease-out;' : '0'}; */
 `;
 
 const Header = styled.div`
