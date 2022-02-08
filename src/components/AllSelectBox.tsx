@@ -5,6 +5,10 @@ import img from "assets/refresh.png";
 
 const Wrapper = styled.div`
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 24px;
+  }
 `;
 
 const Text = styled.div`
@@ -27,6 +31,7 @@ const RefreshButton = styled.div`
 
 const ButtonWrapper = styled.div`
   display: flex;
+  align-items: center;
   margin-right: 15px;
 `;
 

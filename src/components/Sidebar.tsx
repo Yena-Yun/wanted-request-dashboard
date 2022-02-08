@@ -29,6 +29,7 @@ const Wrapper = styled.nav<{openMenu: boolean}>`
   top: 0;
   left: 0;
   transition: all 0.5s ease-out;
+  z-index: 20;
 `;
 
 const Header = styled.div`

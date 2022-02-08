@@ -3,26 +3,20 @@ import Sidebar from './Sidebar';
 import Burger from './Burger';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
+import { BurgerMenuType } from 'types/burgerMenuType';
 
-interface MenuType {
-  openMenu:boolean,
-  setOpenMenu: ((openMenu:boolean) => void)
-  node: React.RefObject<HTMLDivElement>
-}
-
-const Header = (props:MenuType) => {
-  
+const Header = (props:BurgerMenuType) => {
 
   return (
     <>
     <Wrapper>
       <div  ref={props.node}>
-      <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu}/>
-      <Sidebar openMenu={props.openMenu} />
-      </div>
+        <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu}/>
+        <Sidebar openMenu={props.openMenu} />
       <LogoWrap>
         <Logo src={logo} alt='logo' />
       </LogoWrap>
+      </div>
       <GnbWrap show>
         <CompanyWrap>
           <CompanyImgWrap>
@@ -48,43 +42,23 @@ const Wrapper = styled.div`
   position: relative;
 
   @media screen and (max-width: ${({ theme }) => theme.media.test}) {
-    height: 70px;
+    height: 44px;
     padding: 16px 60px;
   }  
 `;
+
 
 const LogoWrap = styled.div`
   width: 153px;
   height: 20px;
   display: flex;
-`;
-
-const MenuWrap = styled('div')<{ show: boolean }>`
-  height: 40px;
-  margin-right: 19px;
-  position: absolute;
-  top: 42%;
-  left: 20px;
-  display: none;
 
   @media screen and (max-width: ${({ theme }) => theme.media.test}) {
-    ${(props) => props.show && 'display: block'}
-  }
-
-  transform: translateX(0%);
-  transition: transform 2s;
+    height: 12px;
+    width: 91.8px;
+  }  
 `;
 
-const Bar = styled.div`
-  width: 18px;
-  height: 2px;
-  margin-bottom: 3px;
-  background: ${({ theme }) => theme.color.extraLight};
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
 
 const Logo = styled.img`
   width: 100%;

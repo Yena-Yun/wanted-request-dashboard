@@ -49,6 +49,7 @@ const ElSwitch = styled.label`
   display: inline-block;
   width: 2.4rem;
   height: 1rem;
+  margin-right: 16px;
 `;
 
 const ToggleInput = styled.input`
