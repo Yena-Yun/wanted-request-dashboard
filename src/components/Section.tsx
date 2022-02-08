@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 import { dataType } from 'types';
-import { Card } from 'components';
+import { Card, AllSelectBox } from 'components';
 
 const Section = (props: { data?: dataType[] }) => {
   const { data } = props;
 
   return (
     <Wrapper>
-      <Header>
+      <Navbar>
         <Title>들어온 요청</Title>
         <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
-      </Header>
+        <div>
+          <AllSelectBox />
+        </div>
+      </Navbar>
       <Content>{data && data.map((el) => <Card key={el.id} item={el} />)}</Content>
     </Wrapper>
   );
@@ -23,7 +26,7 @@ const Wrapper = styled.div`
   padding: 40px 0;
 `;
 
-const Header = styled.div`
+const Navbar = styled.div`
   width: 1130px;
 
   @media screen and (max-width: 1142px) {
