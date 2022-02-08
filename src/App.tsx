@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
-import { getApiFunc } from 'utils/getApi';
-import { dataType } from 'types';
-import './App.css';
-import Header from 'components/Header';
+import { useEffect, useState } from "react";
+import { getApiFunc } from "utils/getApi";
+import { dataType } from "types";
+import "./App.css";
+import Header from "components/Header";
+import SelectBox from "components/SelectBox";
+import AllSelectBox from "components/AllSelectBox";
 
 const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);
@@ -19,6 +21,7 @@ const App = (): JSX.Element => {
     <>
       <Header />
       {data && data.map((el) => <div key={el.id}>{el.title}</div>)}
+      <AllSelectBox />
     </>
   );
 };
