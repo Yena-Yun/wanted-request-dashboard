@@ -1,6 +1,10 @@
-import { useEffect, useState } from 'react';
-import { getApiFunc } from 'utils';
-import { dataType } from 'types';
+import { useEffect, useState } from "react";
+import { getApiFunc } from "utils/getApi";
+import { dataType } from "types";
+import "./App.css";
+import Header from "components/Header";
+import SelectBox from "components/SelectBox";
+import AllSelectBox from "components/AllSelectBox";
 import { Header, Section } from 'components';
 
 const App = (): JSX.Element => {
@@ -16,6 +20,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <Header />
+      <AllSelectBox />
       <Section data={data}></Section>
     </>
   );

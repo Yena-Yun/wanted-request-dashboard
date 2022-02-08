@@ -1,4 +1,4 @@
 import { dataType } from "./dataType";
-import { SelectBoxProps, StyleType } from "./selectBoxType";
+import { SelectBoxProps, StyleType, SelectType } from "./selectBoxType";
 
-export type { dataType, SelectBoxProps, StyleType };
+export type { dataType, SelectBoxProps, StyleType, SelectType };
