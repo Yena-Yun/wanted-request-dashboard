@@ -1,12 +1,10 @@
-
 import Sidebar from './Sidebar';
 import {Burger} from 'components';
 import styled from 'styled-components';
 import { logo, company } from 'assets';
-import { BurgerMenuType } from 'types/burgerMenuType';
+import { BurgerMenuType } from 'types';
 
-const Header = (props:BurgerMenuType) => {
-
+const Header = (props: BurgerMenuType) => {
   return (
     <>
     <Wrapper>
@@ -41,24 +39,26 @@ const Wrapper = styled.div`
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
   position: relative;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
+    padding: 25px 60px;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     height: 44px;
     padding: 16px 60px;
-  }  
+  }
 `;
-
 
 const LogoWrap = styled.div`
   width: 153px;
   height: 20px;
   display: flex;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     height: 12px;
     width: 91.8px;
-  }  
+  }
 `;
-
 
 const Logo = styled.img`
   width: 100%;
@@ -69,7 +69,7 @@ const GnbWrap = styled('div')<{ show: boolean }>`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: ${({ theme }) => theme.media.test}) {
+  @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
     ${(props) => props.show && 'display: none'}
   }
 `;
@@ -95,6 +95,7 @@ const CompanyName = styled.p`
   color: ${({ theme }) => theme.color.white};
   line-height: ${({ theme }) => theme.size[3]};
 `;
+
 const Divider = styled.div`
   width: 1px;
   height: 16px;

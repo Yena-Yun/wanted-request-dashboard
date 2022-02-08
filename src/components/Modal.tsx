@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import checkIcon from "assets/check.png";
-import { RefObject, useRef } from 'react';
+import { useRef } from 'react';
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 interface ModalProps {
@@ -14,14 +14,12 @@ const Modal = ({ type, setSelect, select, setClick }: ModalProps): JSX.Element =
   const method: string[] = ["밀링", "선반"];
   const material: string[] = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
   let list: string[] = method;
-  if (type === "material") {
+  if (type === 'material') {
     list = material;
   }
 
   const handleLabel = (el: string) => {
-    select.includes(el as never)
-      ? setSelect(select.filter((e) => e !== el))
-      : setSelect([...select, el]);
+    select.includes(el as never) ? setSelect(select.filter((e) => e !== el)) : setSelect([...select, el]);
   };
 
   const divEl = useRef<HTMLDivElement>(null);
@@ -35,17 +33,11 @@ const Modal = ({ type, setSelect, select, setClick }: ModalProps): JSX.Element =
     <SelectBox ref={divEl}>
       {list.map((el) => (
         <Select key={el}>
-          <Input
-            type="checkbox"
-            id={el}
-            value={el}
-            checked={select.includes(el as never)}
-            readOnly
-          />
+          <Input type='checkbox' id={el} value={el} checked={select.includes(el as never)} readOnly />
 
           <CheckBox>
             <Label htmlFor={el} onClick={() => handleLabel(el)}>
-              <CheckIcon src={checkIcon} alt="check-icon" />
+              <CheckIcon src={checkIcon} alt='check-icon' />
             </Label>
             <Content>{el}</Content>
           </CheckBox>
@@ -57,8 +49,8 @@ const Modal = ({ type, setSelect, select, setClick }: ModalProps): JSX.Element =
 
 const SelectBox = styled.div`
   width: 130px;
-  background-color: #ffffff;
-  border: 1px solid #939fa5;
+  background: ${({ theme }) => theme.color.white};
+  border: 1px solid ${({ theme }) => theme.color.sub};
   border-radius: 4px;
   padding: 12px 20px;
   z-index: 999;
@@ -72,28 +64,29 @@ const Select = styled.div`
 `;
 const Input = styled.input`
   display: none;
+
   &:checked + div label::after {
     position: absolute;
     top: 0%;
     left: 0%;
-    content: "";
+    content: '';
     width: 18px;
     height: 18px;
-    color: #2196f3;
-    background-color: #2196f3;
+    color: ${({ theme }) => theme.color.button};
+    background: ${({ theme }) => theme.color.button};
     border-radius: 2px;
   }
 `;
 const CheckBox = styled.div`
   display: flex;
   position: relative;
-  /* align-items: center; */
 `;
+
 const Label = styled.label`
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2px solid #939fa5;
+  border: 2px solid ${({ theme }) => theme.color.sub};
   border-radius: 2px;
   margin-right: 10px;
 `;
@@ -118,7 +111,7 @@ const Content = styled.span`
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: #323d45;
+  color: ${({ theme }) => theme.color.default};
 `;
 
 export default Modal;

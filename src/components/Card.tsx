@@ -51,6 +51,10 @@ const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.color.light};
   border-radius: ${({ theme }) => theme.radius.base};
   margin: 0 8px 8px 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    padding: 20px 12px 16px;
+  }
 `;
 
 const Header = styled.div`
@@ -68,6 +72,11 @@ const Title = styled.h2`
   line-height: ${({ theme }) => theme.size[4]};
   color: ${({ theme }) => theme.color.default};
   margin-bottom: 4px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 12px;
+    line-height: ${({ theme }) => theme.size[0]};
+  }
 `;
 
 const Badge = styled.div<{ status: string }>`
@@ -79,6 +88,12 @@ const Badge = styled.div<{ status: string }>`
   border: 1px solid ${({ theme }) => theme.color.warning};
   border-radius: ${({ theme }) => theme.radius.button};
   color: ${({ theme }) => theme.color.warning};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 8px;
+    height: 16px;
+    padding: 0 4px;
+  }
 `;
 
 const Client = styled.p`
@@ -87,6 +102,12 @@ const Client = styled.p`
   line-height: ${({ theme }) => theme.size[3]};
   color: ${({ theme }) => theme.color.default};
   margin-bottom: 24px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    line-height: 4px;
+    margin-bottom: 16px;
+  }
 `;
 
 const Due = styled.span`
@@ -94,6 +115,11 @@ const Due = styled.span`
   line-height: ${({ theme }) => theme.size[3]};
   color: ${({ theme }) => theme.color.sub};
   margin-bottom: 16px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    line-height: ${({ theme }) => theme.size[0]};
+  }
 `;
 
 const Divider = styled.div`
@@ -101,6 +127,11 @@ const Divider = styled.div`
   height: 1px;
   background: ${({ theme }) => theme.color.light};
   margin: 0 auto 32px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    width: 200px;
+    margin: 0 auto 16px;
+  }
 `;
 
 const Section = styled.div`
@@ -110,11 +141,19 @@ const Section = styled.div`
 const Content = styled.div`
   ${({ theme }) => theme.flex.column};
   margin-bottom: 32px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    margin-bottom: 10px;
+  }
 `;
 
 const Wrap = styled.div`
   display: flex;
   margin-bottom: 8px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    margin-bottom: 4px;
+  }
 `;
 
 const Label = styled.div`
@@ -124,12 +163,22 @@ const Label = styled.div`
   font-size: ${({ theme }) => theme.size[1]};
   line-height: ${({ theme }) => theme.size[3]};
   margin-right: 32px;
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    line-height: 10px;
+  }
 `;
 
 const Info = styled.div`
   font-size: ${({ theme }) => theme.size[1]};
   font-weight: ${({ theme }) => theme.weight.bold};
   line-height: ${({ theme }) => theme.size[3]};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    line-height: 10px;
+  }
 `;
 
 const ButtonWrap = styled.div`
@@ -141,11 +190,17 @@ const ShowHistory = styled.div`
   font-size: ${({ theme }) => theme.size[1]};
   font-weight: ${({ theme }) => theme.weight.medium};
   color: ${({ theme }) => theme.color.white};
-  line-height: ${({ theme }) => theme.size[3]};
   padding: 6px 12px;
   margin-right: 8px;
   ${({ theme }) => theme.flex.center};
   border-radius: ${({ theme }) => theme.radius.base};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    padding: 3px 6px;
+    margin-right: 4px;
+    font-weight: ${({ theme }) => theme.weight.regular};
+  }
 `;
 
 const Chatting = styled.div`
@@ -156,6 +211,12 @@ const Chatting = styled.div`
   border: 1px solid ${({ theme }) => theme.color.button};
   ${({ theme }) => theme.flex.center};
   border-radius: ${({ theme }) => theme.radius.base};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 10px;
+    padding: 3px 6px;
+    font-weight: ${({ theme }) => theme.weight.regular};
+  }
 `;
 
 export default Card;
