@@ -1,5 +1,8 @@
 <h1>원티드: 요청서 대시보드 구현</h1>
 
+## 🎈 배포 주소
+https://ateam-ventrues-mission.herokuapp.com/
+
 ## 🎈 실행 영상 및 이미지
 ### 🧩 필터 기능 및 리셋 + 토글 기능
 <img src="https://user-images.githubusercontent.com/68722179/153127251-1b8b9af7-9fd1-4453-8260-fcc4763b2695.gif" width="800" />
