@@ -8,7 +8,7 @@
 <img src="https://user-images.githubusercontent.com/68722179/153125728-03fe613a-36b2-48d6-aca3-142b9a7b044c.gif" width="800" />
 
 ### 🧩 모바일 화면
-<img src="https://user-images.githubusercontent.com/68722179/153125744-0cafd269-1885-4c57-8ecf-fdc0dc7deccd.png" width="800" />
+<img src="https://user-images.githubusercontent.com/68722179/153125744-0cafd269-1885-4c57-8ecf-fdc0dc7deccd.png" width="300" />
 
 ### 🧩 페이지 반응형 구현
 <img src="https://user-images.githubusercontent.com/68722179/153125715-d1bc2ea0-f99d-43ff-b3d6-e6e8b77204bc.gif" width="800" />
