@@ -3,8 +3,7 @@ import { ElSwitch, Slider, ToggleInput } from 'styles/ToggleStyle';
 import { ToggleProps } from 'types';
 
 const Toggle = (props: ToggleProps) => {
-  const [browserSize, setBrowserSize] = useState<number>(0);
-  console.log(browserSize);
+  const [browserSize, setBrowserSize] = useState<number>(window.innerWidth);
   useEffect(() => {
     const handleWidth = () => {
       setTimeout(() => setBrowserSize(window.innerWidth), 300);
