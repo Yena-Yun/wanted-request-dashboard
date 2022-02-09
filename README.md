@@ -26,7 +26,7 @@
 
 ## ✨ 전체 구현사항
     
-안병진,이지용
+⚜ 안병진,이지용
     
 - Select Box 컴포넌트 구현
    - 상담중이라면 상담중인 것들과 체크된 가공방식, 재료 이 3가지를 교집합으로 필터링해서 카드 컴포넌트로 시각화
@@ -37,12 +37,12 @@
    - 두개의 Select Box중 하나의 Select Box만 모달이 보여지게 함.
    - 피그마의 예시대로 css 완벽구현
     
-박민주
+⚜ 박민주
    - 모바일 화면: 햄버거 메뉴 클릭 시 transition 구현
    - 모바일 화면: 사이드 메뉴 화면 영역에서 백그라운드 영역 탭하면 사이드 바 close
    - 백그라운드 영역 탭하면 기존 영역이 닫히는 hooks 함수 도입 (hooks/useOnClickOutside)
  
-윤예나
+⚜ 윤예나
    - json-server 연결 후 카드에 데이터 렌더링
    - 웹 화면 UI + 카드 반응형 구현
    - 모바일 화면 UI 구현
@@ -56,26 +56,37 @@
 └── src
     ├── assets             
     ├── components
-    │   ├── AllSelectBox     
-    │   ├── Burger  
-    │   ├── Card  
-    │   ├── Header  
-    │   ├── Modal  
-    │   ├── Section  
-    │   ├── SelectBox 
-    │   ├── Sidebar
-    │   └── Toggle       
+    │   ├── AllSelectBox.tsx     
+    │   ├── Burger.tsx  
+    │   ├── Card.tsx  
+    │   ├── Header.tsx  
+    │   ├── Modal.tsx  
+    │   ├── Section.tsx
+    │   ├── SelectBox.tsx
+    │   ├── Sidebar.tsx
+    │   └── Toggle.tsx       
     ├── hooks           # 커스텀 훅
     │   └── useOnClickOutside 
     ├── styles
     │   ├── fonts       # Noto Sans KR 폰트 다운로드한 폴더
-    │   ├── globalStyles
+    │   ├── globalStyles.ts
+    │   ├── AllSelectBoxStyle.ts
+    │   ├── BurgetStyle.ts
+    │   ├── CardStyle.ts
+    │   ├── HeaderStyle.ts
+    │   ├── ModalStyle.ts
+    │   ├── SectionStyle.ts
+    │   ├── SelectBoxStyle.ts
+    │   ├── SidebarStyle.ts
+    │   ├── ToggleStyle.ts
     │   └── theme.ts 
     ├── types           # Typescript interface 타입들
-    │   ├── burgerMenuType
-    │   ├── dataType 
-    │   └── selectBoxType
+    │   ├── burgerMenuType.ts
+    │   ├── dataType.ts
+    │   ├── modalProps.ts
+    │   ├── toggleProps.ts
+    │   └── selectBoxType.ts
     └── utils           # 공통 함수
-        ├── filteringData
-        └── getApi
+        ├── filteringData.ts
+        └── getApi.ts
 ```
