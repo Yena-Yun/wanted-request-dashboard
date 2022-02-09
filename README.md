@@ -4,7 +4,7 @@
 https://ateam-ventrues-mission.herokuapp.com/
 
 ## 💎 실행 방법
-1. json-server의 서버 켜기
+1. json-server 서버 켜기
     ```bash
     npm run start:server
     ```
