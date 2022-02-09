@@ -1,11 +1,14 @@
 import styled from 'styled-components';
+
 export const Wrapper = styled.div`
   ${({ theme }) => theme.flex.column}
   padding: 24px 16px;
   border: 1px solid ${({ theme }) => theme.color.light};
   border-radius: ${({ theme }) => theme.radius.base};
   margin: 0 8px 8px 0;
-
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.color.primary};
+  }
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     padding: 20px 12px 16px;
   }
