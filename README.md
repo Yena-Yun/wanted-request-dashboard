@@ -1,7 +1,18 @@
 <h1>원티드: 요청서 대시보드 구현</h1>
 
-## 🎈 배포
-🔗 **링크**: https://ateam-ventures.herokuapp.com/
+## 🎈 실행 영상 및 이미지
+### 🧩 필터 기능 및 토글 기능
+<img src="https://user-images.githubusercontent.com/68722179/153125666-bf7b5abc-d0cf-4ebb-b086-c96b9b5e6dd0.gif" width="800" />
+
+### 🧩 박스 클릭 시 사라짐 + 카드 hover 효과
+<img src="https://user-images.githubusercontent.com/68722179/153125728-03fe613a-36b2-48d6-aca3-142b9a7b044c.gif" width="800" />
+
+### 🧩 모바일 화면
+<img src="https://user-images.githubusercontent.com/68722179/153125744-0cafd269-1885-4c57-8ecf-fdc0dc7deccd.png" width="800" />
+
+### 🧩 페이지 반응형 구현
+<img src="https://user-images.githubusercontent.com/68722179/153125715-d1bc2ea0-f99d-43ff-b3d6-e6e8b77204bc.gif" width="800" />
+
 
 <br>
 
