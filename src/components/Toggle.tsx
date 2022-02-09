@@ -1,8 +1,17 @@
+import { useEffect, useState } from 'react';
 import { ElSwitch, Slider, ToggleInput } from 'styles/ToggleStyle';
 import { ToggleProps } from 'types';
 
 const Toggle = (props: ToggleProps) => {
-  const browserSize = window.innerWidth;
+  const [browserSize, setBrowserSize] = useState<number>(0);
+  console.log(browserSize);
+  useEffect(() => {
+    const handleWidth = () => {
+      setTimeout(() => setBrowserSize(window.innerWidth), 300);
+    };
+    window.addEventListener('resize', handleWidth);
+    return () => window.removeEventListener('resize', handleWidth);
+  }, []);
   return (
     <>
       {(props.click !== 1 || browserSize >= 1127) && (
