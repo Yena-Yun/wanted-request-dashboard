@@ -4,7 +4,7 @@
 ### 🧩 필터 기능 및 리셋 + 토글 기능
 <img src="https://user-images.githubusercontent.com/68722179/153127251-1b8b9af7-9fd1-4453-8260-fcc4763b2695.gif" width="800" />
 
-### 🧩 모바일 화면: 메뉴 클릭 시 transition + 바깥 누르면 닫기
+### 🧩 모바일 화면 + 메뉴 클릭 시 transition + 바깥 누르면 닫기
 <img src="https://user-images.githubusercontent.com/68722179/153127306-b7b32f57-bc3d-41d3-90f7-b27776e8d390.gif" width="300" />
 
 ### 🧩 대쉬보드 반응형 구현
