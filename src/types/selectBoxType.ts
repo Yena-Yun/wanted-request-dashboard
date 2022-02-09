@@ -1,5 +1,3 @@
-import { RefObject } from 'react';
-
 interface SelectBoxProps {
   type: string;
   click: number;
@@ -15,4 +13,13 @@ interface StyleType {
 
 type SelectType = string[] | [];
 
-export type { SelectBoxProps, StyleType, SelectType };
+interface AllSelectBoxProps {
+  click: number;
+  methodSelect: string[];
+  setMethodSelect: (method: string[]) => void;
+  materialSelect: string[];
+  setMaterialSelect: (method: string[]) => void;
+  setClick: (click: number) => void;
+}
+
+export type { SelectBoxProps, StyleType, SelectType, AllSelectBoxProps };
