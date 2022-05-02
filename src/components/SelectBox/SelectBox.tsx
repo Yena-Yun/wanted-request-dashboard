@@ -1,57 +1,58 @@
+import Modal from '../../common/Modal/Modal';
+import * as S from 'components/SelectBox/css/SelectBoxStyle';
+import { MATERIAL, METHOD } from 'utils/constants/filterType';
+import { SelectBoxProps } from 'types';
 import img from 'assets/arrow_down.png';
 import activeImg from 'assets/arrow_down_active.png';
-import { SelectBoxProps } from 'types';
-import Modal from '../../common/Modal/Modal';
-import {
-  ArrowDownImg,
-  Container,
-  Content,
-  Wrapper,
-} from 'components/SelectBox/css/SelectBoxStyle';
 
 const SelectBox = (props: SelectBoxProps): JSX.Element => {
+  const SELECT_LENGTH = props.select.length;
+  const { type, click, select, setClick, setSelect } = props;
+
   const handleWrapper = () => {
-    if (props.type === 'method') {
-      (props.click === 0 || props.click === 2) && props.setClick(1);
-      props.click === 1 && props.setClick(0);
+    if (type === METHOD) {
+      (click === 0 || click === 2) && setClick(1);
+      click === 1 && setClick(0);
     } else {
-      (props.click === 0 || props.click === 1) && props.setClick(2);
-      props.click === 2 && props.setClick(0);
+      (click === 0 || click === 1) && setClick(2);
+      click === 2 && setClick(0);
     }
   };
+
   return (
-    <Container>
-      <Wrapper type={props.type} select={props.select} onClick={handleWrapper}>
-        <Content>
-          {props.type === 'method'
-            ? `가공방식${props.select.length ? '(' : ''}${
-                props.select.length ? props.select.length : ''
-              }${props.select.length ? ')' : ''}`
-            : `재료${props.select.length ? '(' : ''}${
-                props.select.length ? props.select.length : ''
-              }${props.select.length ? ')' : ''}`}
-        </Content>
-        <ArrowDownImg src={props.select.length ? activeImg : img} />
-      </Wrapper>
+    <S.Container>
+      <S.Wrapper type={type} select={select} onClick={handleWrapper}>
+        <S.Content>
+          {type === METHOD &&
+            `가공방식${SELECT_LENGTH ? '(' : ''}${
+              SELECT_LENGTH ? SELECT_LENGTH : ''
+            }${SELECT_LENGTH ? ')' : ''}`}
+          {type === MATERIAL &&
+            `재료${SELECT_LENGTH ? '(' : ''}${
+              SELECT_LENGTH ? SELECT_LENGTH : ''
+            }${SELECT_LENGTH ? ')' : ''}`}
+        </S.Content>
+        <S.ArrowDownImg src={SELECT_LENGTH ? activeImg : img} />
+      </S.Wrapper>
 
-      {props.type === 'method' && props.click === 1 && (
+      {type === METHOD && click === 1 && (
         <Modal
-          setClick={props.setClick}
-          type={'method'}
-          setSelect={props.setSelect}
-          select={props.select}
+          setClick={setClick}
+          type={METHOD}
+          setSelect={setSelect}
+          select={select}
         />
       )}
 
-      {props.type === 'material' && props.click === 2 && (
+      {type === MATERIAL && click === 2 && (
         <Modal
-          setClick={props.setClick}
-          type={'material'}
-          setSelect={props.setSelect}
-          select={props.select}
+          setClick={setClick}
+          type={MATERIAL}
+          setSelect={setSelect}
+          select={select}
         />
       )}
-    </Container>
+    </S.Container>
   );
 };
 

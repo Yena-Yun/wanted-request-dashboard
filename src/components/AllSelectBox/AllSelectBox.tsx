@@ -8,6 +8,7 @@ import {
   Wrapper,
 } from 'components/AllSelectBox/css/AllSelectBoxStyle';
 import { AllSelectBoxProps } from 'types';
+import { MATERIAL, METHOD } from 'utils/constants/filterType';
 
 const AllSelectBox = (props: AllSelectBoxProps) => {
   const handleRefresh = () => {
@@ -19,14 +20,14 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
     <Wrapper>
       <ButtonWrapper>
         <SelectBox
-          type='method'
+          type={METHOD}
           click={props.click}
           setClick={props.setClick}
           select={props.methodSelect}
           setSelect={props.setMethodSelect}
         />
         <SelectBox
-          type='material'
+          type={MATERIAL}
           click={props.click}
           setClick={props.setClick}
           select={props.materialSelect}

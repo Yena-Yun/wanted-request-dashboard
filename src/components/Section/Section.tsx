@@ -1,7 +1,7 @@
 import { dataType } from 'types';
 import { Card, AllSelectBox, Toggle } from 'components';
 import { useEffect, useState } from 'react';
-import { materialInterSection, methodInterSection } from 'utils';
+import { MATERIAL, METHOD } from 'utils/constants/filterType';
 import {
   Content,
   Navbar,
@@ -23,17 +23,28 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const [filterData, setFilterData] = useState<dataType[] | undefined>([]);
   const [click, setClick] = useState<number>(0);
 
+  const InterSection = (type: string, obj: dataType, arr: string[]) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (type === METHOD) {
+        if (!obj.method.includes(arr[i])) return false;
+      } else if (type === MATERIAL) {
+        if (!obj.material.includes(arr[i])) return false;
+      }
+    }
+    return true;
+  };
+
   useEffect(() => {
     if (checked) {
       const toggleData = data
         ?.filter((el) => el.status === '상담중')
-        .filter((el) => methodInterSection(el, methodSelect))
-        .filter((el) => materialInterSection(el, materialSelect));
+        .filter((el) => InterSection(METHOD, el, methodSelect))
+        .filter((el) => InterSection(MATERIAL, el, materialSelect));
       setFilterData(toggleData);
     } else {
       const toggleData = data
-        ?.filter((el) => methodInterSection(el, methodSelect))
-        .filter((el) => materialInterSection(el, materialSelect));
+        ?.filter((el) => InterSection(METHOD, el, methodSelect))
+        .filter((el) => InterSection(MATERIAL, el, materialSelect));
       setFilterData(toggleData);
     }
   }, [data, checked, methodSelect, materialSelect]);

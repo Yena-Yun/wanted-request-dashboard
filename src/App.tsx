@@ -1,13 +1,12 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
-import { getApiFunc } from 'utils';
+import { getApiFunc } from 'utils/getApi';
 import { dataType } from 'types';
 import { Header, Section } from 'components';
 
 const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-
   const divEl = useRef<HTMLDivElement>(null);
 
   const checkModalOutside = useCallback(() => {

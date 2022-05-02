@@ -3,7 +3,7 @@ import { dataType } from 'types';
 
 const BASE_URL = 'https://ateam-ventrues-mission.herokuapp.com';
 
-const getApiFunc = async (): Promise<dataType[] | undefined> => {
+export const getApiFunc = async (): Promise<dataType[] | undefined> => {
   try {
     const getData = await axios.get(`${BASE_URL}/requests`);
     return getData.data;
@@ -11,5 +11,3 @@ const getApiFunc = async (): Promise<dataType[] | undefined> => {
     alert(err);
   }
 };
-
-export default getApiFunc;
