@@ -44,14 +44,14 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.color.default};
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
-    font-size: ${({ theme }) => theme.size[0]}
-    line-height: ${({ theme }) => theme.size[0]}
+    font-size: ${({ theme }) => theme.size[0]};
+    line-height: ${({ theme }) => theme.size[0]};
   }
 `;
 
 export const Sub = styled.p`
-  font-size: ${({ theme }) => theme.size[2]}
-  line-height: ${({ theme }) => theme.size[4]}
+  font-size: ${({ theme }) => theme.size[2]};
+  line-height: ${({ theme }) => theme.size[4]};
   color: ${({ theme }) => theme.color.default};
   margin-bottom: 32px;
 
@@ -89,15 +89,16 @@ export const ToggleWrap = styled.div`
 export const ToggleText = styled.p`
   font-size: 14px;
   line-height: 20px;
-  color: ${({ theme }) => theme.color.default} @media screen and
-    (max-width: ${({ theme }) => theme.media.mobile}) {
+  color: ${({ theme }) => theme.color.default};
+
+  @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;
     margin-left: -2px;
   }
 `;
 
 export const Content = styled.div`
-  ${({ theme }) => theme.flex.center}
+  ${({ theme }) => theme.flex.center};
   flex-wrap: wrap;
 
   @media screen and (min-width: 1440px) {
@@ -112,8 +113,9 @@ export const NoContent = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid ${({ theme }) => theme.color.noContent};
-  color: ${({ theme }) => theme.color.sub} ${({ theme }) => theme.flex.center}
-    @media screen and (max-width: 1142px) {
+  color: ${({ theme }) => theme.color.sub} ${({ theme }) => theme.flex.center};
+
+  @media screen and (max-width: 1142px) {
     width: 750px;
   }
 

@@ -1,7 +1,7 @@
+import * as S from './css/SelectBoxStyle';
 import Modal from '../../common/Modal/Modal';
-import * as S from 'components/SelectBox/css/SelectBoxStyle';
-import { MATERIAL, METHOD } from 'utils/constants/filterType';
 import { SelectBoxProps } from 'types';
+import { MATERIAL, METHOD } from 'utils/constants/filterType';
 import img from 'assets/arrow_down.png';
 import activeImg from 'assets/arrow_down_active.png';
 

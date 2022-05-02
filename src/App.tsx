@@ -2,7 +2,8 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 import { getApiFunc } from 'utils/getApi';
 import { dataType } from 'types';
-import { Header, Section } from 'components';
+import Header from 'components/Header/Header';
+import Section from 'components/Section/Section';
 
 const App = (): JSX.Element => {
   const [data, setData] = useState<dataType[] | undefined>([]);

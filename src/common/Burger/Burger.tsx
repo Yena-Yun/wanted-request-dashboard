@@ -1,4 +1,4 @@
-import { MenuWrap } from 'common/Burger/css/BurgerStyle';
+import * as S from './css/BurgerStyle';
 
 const Burger = (props: {
   openMenu: boolean;
@@ -7,11 +7,14 @@ const Burger = (props: {
   const { openMenu, setOpenMenu } = props;
 
   return (
-    <MenuWrap openMenu={props.openMenu} onClick={() => setOpenMenu(!openMenu)}>
+    <S.MenuWrap
+      openMenu={props.openMenu}
+      onClick={() => setOpenMenu(!openMenu)}
+    >
       <span />
       <span />
       <span />
-    </MenuWrap>
+    </S.MenuWrap>
   );
 };
 

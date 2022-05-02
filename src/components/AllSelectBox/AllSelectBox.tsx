@@ -1,14 +1,8 @@
+import * as S from './css/AllSelectBoxStyle';
 import SelectBox from '../SelectBox/SelectBox';
-import img from 'assets/refresh.png';
-import {
-  ButtonWrapper,
-  Img,
-  RefreshButton,
-  Text,
-  Wrapper,
-} from 'components/AllSelectBox/css/AllSelectBoxStyle';
 import { AllSelectBoxProps } from 'types';
 import { MATERIAL, METHOD } from 'utils/constants/filterType';
+import img from 'assets/refresh.png';
 
 const AllSelectBox = (props: AllSelectBoxProps) => {
   const handleRefresh = () => {
@@ -17,8 +11,8 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
   };
 
   return (
-    <Wrapper>
-      <ButtonWrapper>
+    <S.Wrapper>
+      <S.ButtonWrapper>
         <SelectBox
           type={METHOD}
           click={props.click}
@@ -33,15 +27,15 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
           select={props.materialSelect}
           setSelect={props.setMaterialSelect}
         />
-      </ButtonWrapper>
+      </S.ButtonWrapper>
       {(props.methodSelect.length !== 0 ||
         props.materialSelect.length !== 0) && (
-        <RefreshButton onClick={handleRefresh}>
-          <Img src={img} />
-          <Text>필터링 리셋</Text>
-        </RefreshButton>
+        <S.RefreshButton onClick={handleRefresh}>
+          <S.Img src={img} />
+          <S.Text>필터링 리셋</S.Text>
+        </S.RefreshButton>
       )}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

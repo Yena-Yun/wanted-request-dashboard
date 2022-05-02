@@ -1,13 +1,5 @@
 import checkIcon from 'assets/check.png';
-import {
-  CheckBox,
-  CheckIcon,
-  Content,
-  Input,
-  Label,
-  Select,
-  SelectBox,
-} from 'common/Modal/css/ModalStyle';
+import * as S from './css/ModalStyle';
 import { ModalProps } from 'types';
 
 const Modal = ({
@@ -30,10 +22,10 @@ const Modal = ({
   };
 
   return (
-    <SelectBox>
+    <S.SelectBox>
       {list.map((el) => (
-        <Select key={el}>
-          <Input
+        <S.Select key={el}>
+          <S.Input
             type='checkbox'
             id={el}
             value={el}
@@ -41,15 +33,15 @@ const Modal = ({
             readOnly
           />
 
-          <CheckBox>
-            <Label htmlFor={el} onClick={() => handleLabel(el)}>
-              <CheckIcon src={checkIcon} alt='check-icon' />
-            </Label>
-            <Content>{el}</Content>
-          </CheckBox>
-        </Select>
+          <S.CheckBox>
+            <S.Label htmlFor={el} onClick={() => handleLabel(el)}>
+              <S.CheckIcon src={checkIcon} alt='check-icon' />
+            </S.Label>
+            <S.Content>{el}</S.Content>
+          </S.CheckBox>
+        </S.Select>
       ))}
-    </SelectBox>
+    </S.SelectBox>
   );
 };
 

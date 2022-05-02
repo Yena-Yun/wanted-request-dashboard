@@ -1,21 +1,4 @@
-import {
-  Badge,
-  ButtonWrap,
-  Chatting,
-  Client,
-  Content,
-  Divider,
-  Due,
-  Header,
-  Info,
-  Label,
-  Section,
-  ShowHistory,
-  Title,
-  TitleWrap,
-  Wrap,
-  Wrapper,
-} from 'components/Card/css/CardStyle';
+import * as S from './css/CardStyle';
 import { dataType } from 'types';
 
 const Card = (props: { item: dataType }) => {
@@ -23,43 +6,43 @@ const Card = (props: { item: dataType }) => {
     props.item;
 
   return (
-    <Wrapper>
-      <Header>
-        <TitleWrap>
-          <Title>{title}</Title>
-          <Badge status={status}>상담중</Badge>
-        </TitleWrap>
-        <Client>{client}</Client>
-        <Due>{due}까지 납기</Due>
-      </Header>
+    <S.Wrapper>
+      <S.Header>
+        <S.TitleWrap>
+          <S.Title>{title}</S.Title>
+          <S.Badge status={status}>상담중</S.Badge>
+        </S.TitleWrap>
+        <S.Client>{client}</S.Client>
+        <S.Due>{due}까지 납기</S.Due>
+      </S.Header>
 
-      <Divider />
+      <S.Divider />
 
-      <Section>
-        <Content>
-          <Wrap>
-            <Label>도면개수</Label>
-            <Info>{count ? count : 0}개</Info>
-          </Wrap>
-          <Wrap>
-            <Label>총 수량</Label>
-            <Info>{amount}개</Info>
-          </Wrap>
-          <Wrap>
-            <Label>가공방식</Label>
-            <Info>{method.join(', ')}</Info>
-          </Wrap>
-          <Wrap>
-            <Label>재료</Label>
-            <Info>{material.join(', ')}</Info>
-          </Wrap>
-        </Content>
-        <ButtonWrap>
-          <ShowHistory>요청 내역 보기</ShowHistory>
-          <Chatting>채팅하기</Chatting>
-        </ButtonWrap>
-      </Section>
-    </Wrapper>
+      <S.Section>
+        <S.Content>
+          <S.Wrap>
+            <S.Label>도면개수</S.Label>
+            <S.Info>{count ? count : 0}개</S.Info>
+          </S.Wrap>
+          <S.Wrap>
+            <S.Label>총 수량</S.Label>
+            <S.Info>{amount}개</S.Info>
+          </S.Wrap>
+          <S.Wrap>
+            <S.Label>가공방식</S.Label>
+            <S.Info>{method.join(', ')}</S.Info>
+          </S.Wrap>
+          <S.Wrap>
+            <S.Label>재료</S.Label>
+            <S.Info>{material.join(', ')}</S.Info>
+          </S.Wrap>
+        </S.Content>
+        <S.ButtonWrap>
+          <S.ShowHistory>요청 내역 보기</S.ShowHistory>
+          <S.Chatting>채팅하기</S.Chatting>
+        </S.ButtonWrap>
+      </S.Section>
+    </S.Wrapper>
   );
 };
 

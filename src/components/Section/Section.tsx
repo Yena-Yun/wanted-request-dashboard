@@ -1,19 +1,10 @@
-import { dataType } from 'types';
-import { Card, AllSelectBox, Toggle } from 'components';
 import { useEffect, useState } from 'react';
+import * as S from './css/SectionStyle';
+import Card from '../Card/Card';
+import AllSelectBox from '../AllSelectBox/AllSelectBox';
+import Toggle from 'common/Toggle/Toggle';
+import { dataType } from 'types';
 import { MATERIAL, METHOD } from 'utils/constants/filterType';
-import {
-  Content,
-  Navbar,
-  NoContent,
-  SelectorWrap,
-  Shadow,
-  Sub,
-  Title,
-  ToggleText,
-  ToggleWrap,
-  Wrapper,
-} from 'components/Section/css/SectionStyle';
 
 const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const { data } = props;
@@ -50,12 +41,12 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   }, [data, checked, methodSelect, materialSelect]);
 
   return (
-    <Wrapper>
-      {props.openMenu && <Shadow openMenu={props.openMenu} />}
-      <Navbar>
-        <Title>들어온 요청</Title>
-        <Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</Sub>
-        <SelectorWrap>
+    <S.Wrapper>
+      {props.openMenu && <S.Shadow openMenu={props.openMenu} />}
+      <S.Navbar>
+        <S.Title>들어온 요청</S.Title>
+        <S.Sub>파트너님에게 딱 맞는 요청서를 찾아보세요.</S.Sub>
+        <S.SelectorWrap>
           <AllSelectBox
             methodSelect={methodSelect}
             setMethodSelect={setMethodSelect}
@@ -64,25 +55,25 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
             click={click}
             setClick={setClick}
           />
-          <ToggleWrap>
+          <S.ToggleWrap>
             <Toggle
               checked={checked}
               setChecked={setChecked}
               click={click}
               setClick={setClick}
             />
-            <ToggleText>상담 중인 요청만 보기</ToggleText>
-          </ToggleWrap>
-        </SelectorWrap>
-      </Navbar>
-      <Content>
+            <S.ToggleText>상담 중인 요청만 보기</S.ToggleText>
+          </S.ToggleWrap>
+        </S.SelectorWrap>
+      </S.Navbar>
+      <S.Content>
         {filterData?.length ? (
           filterData.map((el) => <Card key={el.id} item={el} />)
         ) : (
-          <NoContent>조건에 맞는 견적 요청이 없습니다.</NoContent>
+          <S.NoContent>조건에 맞는 견적 요청이 없습니다.</S.NoContent>
         )}
-      </Content>
-    </Wrapper>
+      </S.Content>
+    </S.Wrapper>
   );
 };
 
