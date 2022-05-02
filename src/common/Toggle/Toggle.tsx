@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  ElSwitch,
-  Slider,
-  ToggleInput,
-} from 'components/common/Toggle/css/ToggleStyle';
+import { ElSwitch, Slider, ToggleInput } from 'common/Toggle/css/ToggleStyle';
 import { ToggleProps } from 'types';
 
 const Toggle = (props: ToggleProps) => {

@@ -1,4 +1,4 @@
-import { MenuWrap } from 'components/common/Burger/css/BurgerStyle';
+import { MenuWrap } from 'common/Burger/css/BurgerStyle';
 
 const Burger = (props: {
   openMenu: boolean;

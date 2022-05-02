@@ -1,7 +1,7 @@
 import img from 'assets/arrow_down.png';
 import activeImg from 'assets/arrow_down_active.png';
 import { SelectBoxProps } from 'types';
-import Modal from '../common/Modal/Modal';
+import Modal from '../../common/Modal/Modal';
 import {
   ArrowDownImg,
   Container,

@@ -7,7 +7,7 @@ import {
   Label,
   Select,
   SelectBox,
-} from 'components/common/Modal/css/ModalStyle';
+} from 'common/Modal/css/ModalStyle';
 import { ModalProps } from 'types';
 
 const Modal = ({
