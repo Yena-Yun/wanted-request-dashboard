@@ -6,8 +6,8 @@
 ## 🧨 구현사항
 1. json-server로 mock 데이터(db.json)를 받아와서 렌더링
 1. 다중 필터 및 reset 기능
-2. '상담중'인 화면만 보기 토글 기능
-3. 반응형 화면 시 좌측 상단에 hamburger 바 (왼쪽에서 transitioon되어 나타남) 
+2. '상담중'인 화면만 볼 수 있는 토글 기능
+3. 반응형 화면 시 좌측 상단에 hamburger 바 (왼쪽에서 transition되어 나타남) 
 4. styled-components로 UI 구현
 
 
