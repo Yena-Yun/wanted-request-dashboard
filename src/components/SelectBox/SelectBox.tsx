@@ -1,13 +1,13 @@
 import img from 'assets/arrow_down.png';
 import activeImg from 'assets/arrow_down_active.png';
 import { SelectBoxProps } from 'types';
-import Modal from './Modal';
+import Modal from '../common/Modal/Modal';
 import {
   ArrowDownImg,
   Container,
   Content,
   Wrapper,
-} from 'styles/SelectBoxStyle';
+} from 'components/SelectBox/css/SelectBoxStyle';
 
 const SelectBox = (props: SelectBoxProps): JSX.Element => {
   const handleWrapper = () => {

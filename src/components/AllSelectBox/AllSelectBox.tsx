@@ -1,4 +1,4 @@
-import SelectBox from './SelectBox';
+import SelectBox from '../SelectBox/SelectBox';
 import img from 'assets/refresh.png';
 import {
   ButtonWrapper,
@@ -6,7 +6,7 @@ import {
   RefreshButton,
   Text,
   Wrapper,
-} from 'styles/AllSelectBoxStyle';
+} from 'components/AllSelectBox/css/AllSelectBoxStyle';
 import { AllSelectBoxProps } from 'types';
 
 const AllSelectBox = (props: AllSelectBoxProps) => {
@@ -19,14 +19,14 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
     <Wrapper>
       <ButtonWrapper>
         <SelectBox
-          type="method"
+          type='method'
           click={props.click}
           setClick={props.setClick}
           select={props.methodSelect}
           setSelect={props.setMethodSelect}
         />
         <SelectBox
-          type="material"
+          type='material'
           click={props.click}
           setClick={props.setClick}
           select={props.materialSelect}

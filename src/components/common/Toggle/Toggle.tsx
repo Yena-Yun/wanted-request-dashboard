@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ElSwitch, Slider, ToggleInput } from 'styles/ToggleStyle';
+import {
+  ElSwitch,
+  Slider,
+  ToggleInput,
+} from 'components/common/Toggle/css/ToggleStyle';
 import { ToggleProps } from 'types';
 
 const Toggle = (props: ToggleProps) => {
@@ -16,7 +20,7 @@ const Toggle = (props: ToggleProps) => {
       {(props.click !== 1 || browserSize >= 1127) && (
         <ElSwitch>
           <ToggleInput
-            type="checkbox"
+            type='checkbox'
             checked={props.checked}
             onChange={() => props.setChecked(!props.checked)}
           />

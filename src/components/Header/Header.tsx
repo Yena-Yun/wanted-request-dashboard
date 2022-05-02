@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
 import { Burger } from 'components';
 import { logo, company } from 'assets';
 import { BurgerMenuType } from 'types';
@@ -13,7 +13,7 @@ import {
   LogOut,
   LogoWrap,
   Wrapper,
-} from 'styles/HeaderStyle';
+} from 'components/Header/css/HeaderStyle';
 
 const Header = (props: BurgerMenuType) => {
   return (
@@ -23,13 +23,13 @@ const Header = (props: BurgerMenuType) => {
           <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu} />
           <Sidebar openMenu={props.openMenu} />
           <LogoWrap>
-            <Logo src={logo} alt="logo" />
+            <Logo src={logo} alt='logo' />
           </LogoWrap>
         </div>
         <GnbWrap show>
           <CompanyWrap>
             <CompanyImgWrap>
-              <Company src={company} alt="processor" />
+              <Company src={company} alt='processor' />
             </CompanyImgWrap>
             <CompanyName>A 가공 업체</CompanyName>
           </CompanyWrap>

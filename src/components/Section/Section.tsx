@@ -13,7 +13,7 @@ import {
   ToggleText,
   ToggleWrap,
   Wrapper,
-} from 'styles/SectionStyle';
+} from 'components/Section/css/SectionStyle';
 
 const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const { data } = props;

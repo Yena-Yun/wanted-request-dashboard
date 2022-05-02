@@ -7,17 +7,17 @@ import {
   MainLogo,
   Section,
   Wrapper,
-} from 'styles/SidebarStyle';
+} from 'components/Sidebar/css/SidebarStyle';
 
 const Sidebar = (props: { openMenu: boolean }) => {
   return (
     <Wrapper openMenu={props.openMenu}>
       <Header>
-        <MainLogo src={mobile_logo} alt="mobile_logo" />
+        <MainLogo src={mobile_logo} alt='mobile_logo' />
       </Header>
       <Section>
         <Contents>
-          <CompanyLogo src={mobile_company} alt="mobile_company" />
+          <CompanyLogo src={mobile_company} alt='mobile_company' />
           파트너정밀가공
         </Contents>
         <Contents>로그아웃</Contents>

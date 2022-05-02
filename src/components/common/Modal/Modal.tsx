@@ -7,7 +7,7 @@ import {
   Label,
   Select,
   SelectBox,
-} from 'styles/ModalStyle';
+} from 'components/common/Modal/css/ModalStyle';
 import { ModalProps } from 'types';
 
 const Modal = ({
@@ -34,7 +34,7 @@ const Modal = ({
       {list.map((el) => (
         <Select key={el}>
           <Input
-            type="checkbox"
+            type='checkbox'
             id={el}
             value={el}
             checked={select.includes(el as never)}
@@ -43,7 +43,7 @@ const Modal = ({
 
           <CheckBox>
             <Label htmlFor={el} onClick={() => handleLabel(el)}>
-              <CheckIcon src={checkIcon} alt="check-icon" />
+              <CheckIcon src={checkIcon} alt='check-icon' />
             </Label>
             <Content>{el}</Content>
           </CheckBox>

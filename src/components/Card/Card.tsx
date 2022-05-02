@@ -15,7 +15,7 @@ import {
   TitleWrap,
   Wrap,
   Wrapper,
-} from 'styles/CardStyle';
+} from 'components/Card/css/CardStyle';
 import { dataType } from 'types';
 
 const Card = (props: { item: dataType }) => {
