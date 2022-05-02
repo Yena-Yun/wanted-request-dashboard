@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import * as S from './css/AllSelectBoxStyle';
 import { FlexBox, Image } from 'styles/commonStyles';
 import SelectBox from '../SelectBox/SelectBox';
@@ -15,10 +16,10 @@ const AllSelectBox = (props: AllSelectBoxProps) => {
     setMaterialSelect,
   } = props;
 
-  const handleRefresh = () => {
+  const handleRefresh = useCallback(() => {
     setMethodSelect([]);
     setMaterialSelect([]);
-  };
+  }, [setMethodSelect, setMaterialSelect]);
 
   return (
     <FlexBox>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as S from './css/SectionStyle';
 import Card from '../Card/Card';
 import AllSelectBox from '../AllSelectBox/AllSelectBox';
@@ -14,16 +14,19 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
   const [filterData, setFilterData] = useState<dataType[] | undefined>([]);
   const [click, setClick] = useState<number>(0);
 
-  const InterSection = (type: string, obj: dataType, arr: string[]) => {
-    for (let i = 0; i < arr.length; i++) {
-      if (type === METHOD) {
-        if (!obj.method.includes(arr[i])) return false;
-      } else if (type === MATERIAL) {
-        if (!obj.material.includes(arr[i])) return false;
+  const InterSection = useCallback(
+    (type: string, obj: dataType, arr: string[]) => {
+      for (let i = 0; i < arr.length; i++) {
+        if (type === METHOD) {
+          if (!obj.method.includes(arr[i])) return false;
+        } else if (type === MATERIAL) {
+          if (!obj.material.includes(arr[i])) return false;
+        }
       }
-    }
-    return true;
-  };
+      return true;
+    },
+    []
+  );
 
   useEffect(() => {
     if (checked) {
@@ -38,7 +41,7 @@ const Section = (props: { data?: dataType[]; openMenu: boolean }) => {
         .filter((el) => InterSection(MATERIAL, el, materialSelect));
       setFilterData(toggleData);
     }
-  }, [data, checked, methodSelect, materialSelect]);
+  }, [data, checked, methodSelect, materialSelect, InterSection]);
 
   return (
     <S.Wrapper>

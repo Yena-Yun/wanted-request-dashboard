@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import * as S from './css/SelectBoxStyle';
 import Modal from '../../common/Modal/Modal';
 import { SelectBoxProps } from 'types';
@@ -9,7 +10,7 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
   const SELECT_LENGTH = props.select.length;
   const { type, click, select, setClick, setSelect } = props;
 
-  const handleWrapper = () => {
+  const handleWrapper = useCallback(() => {
     if (type === METHOD) {
       (click === 0 || click === 2) && setClick(1);
       click === 1 && setClick(0);
@@ -17,7 +18,7 @@ const SelectBox = (props: SelectBoxProps): JSX.Element => {
       (click === 0 || click === 1) && setClick(2);
       click === 2 && setClick(0);
     }
-  };
+  }, [click, setClick, type]);
 
   return (
     <S.Container>
