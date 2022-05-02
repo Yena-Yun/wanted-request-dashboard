@@ -11,7 +11,8 @@ export const Slider = styled.span`
   height: 14px;
   transition: 0.4s;
   border-radius: 2.2rem;
-  background: ${(props: { toggled: boolean }) => (props.toggled ? '#BBDEFB' : '#C2C2C2')};
+  background: ${(props: { toggled: boolean }) =>
+    props.toggled ? '#BBDEFB' : '#C2C2C2'};
   z-index: -1;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
@@ -57,6 +58,7 @@ export const ElSwitch = styled.label`
   width: 2.4rem;
   height: 16px;
   margin-right: 16px;
+  cursor: pointer;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     margin: -1px -4px 0 0;
@@ -67,5 +69,4 @@ export const ToggleInput = styled.input`
   opacity: 0;
   width: 0;
   height: 0;
-  point-events: none;
 `;

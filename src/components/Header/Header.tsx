@@ -22,7 +22,7 @@ const Header = (props: BurgerMenuType) => {
         <div ref={props.divEl}>
           <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu} />
           <Sidebar openMenu={props.openMenu} />
-          <LogoWrap>
+          <LogoWrap onClick={() => (window.location.href = '/')}>
             <Logo src={logo} alt='logo' />
           </LogoWrap>
         </div>

@@ -151,6 +151,7 @@ export const ShowHistory = styled.div`
   margin-right: 8px;
   ${({ theme }) => theme.flex.center};
   border-radius: ${({ theme }) => theme.radius.base};
+  cursor: pointer;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;
@@ -168,6 +169,7 @@ export const Chatting = styled.div`
   border: 1px solid ${({ theme }) => theme.color.button};
   ${({ theme }) => theme.flex.center};
   border-radius: ${({ theme }) => theme.radius.base};
+  cursor: pointer;
 
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 10px;

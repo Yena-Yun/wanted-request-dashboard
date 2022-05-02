@@ -24,6 +24,7 @@ export const LogoWrap = styled.div`
   width: 153px;
   height: 20px;
   display: flex;
+  cursor: pointer;
 
   @media screen and (max-width: ${({ theme }) => theme.media.tablet}) {
     height: 12px;
@@ -65,6 +66,7 @@ export const CompanyName = styled.p`
   font-weight: ${({ theme }) => theme.weight.medium};
   color: ${({ theme }) => theme.color.white};
   line-height: ${({ theme }) => theme.size[3]};
+  cursor: pointer;
 `;
 
 export const Divider = styled.div`
@@ -78,4 +80,5 @@ export const LogOut = styled.button`
   font-size: ${({ theme }) => theme.size[1]};
   color: ${({ theme }) => theme.color.white};
   line-height: ${({ theme }) => theme.size[3]};
+  cursor: pointer;
 `;
