@@ -1,20 +1,20 @@
 import { useCallback } from 'react';
 import * as S from './css/SelectBoxStyle';
-import Modal from '../../common/Modal/Modal';
+import Modal from 'common/Modal/Modal';
 import { SelectBoxProps } from 'types';
 import { MATERIAL, METHOD } from 'utils/constants/filterType';
 import img from 'assets/arrow_down.png';
 import activeImg from 'assets/arrow_down_active.png';
 
 const SelectBox = (props: SelectBoxProps): JSX.Element => {
-  const SELECT_LENGTH = props.select.length;
   const { type, click, select, setClick, setSelect } = props;
+  const SELECT_LENGTH = props.select.length;
 
   const handleWrapper = useCallback(() => {
     if (type === METHOD) {
       (click === 0 || click === 2) && setClick(1);
       click === 1 && setClick(0);
-    } else {
+    } else if (type === MATERIAL) {
       (click === 0 || click === 1) && setClick(2);
       click === 2 && setClick(0);
     }
