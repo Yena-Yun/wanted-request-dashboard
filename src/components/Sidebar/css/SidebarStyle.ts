@@ -20,10 +20,6 @@ export const Header = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.color.light};
 `;
 
-export const MainLogo = styled.img`
-  height: 12px;
-`;
-
 export const Section = styled.section`
   margin-top: 36px;
 `;
@@ -31,10 +27,4 @@ export const Section = styled.section`
 export const Contents = styled.div`
   margin-bottom: 24px;
   padding-left: 32px;
-`;
-
-export const CompanyLogo = styled.img`
-  width: 15px;
-  height: 15px;
-  margin-right: 8px;
 `;

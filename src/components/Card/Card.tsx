@@ -1,5 +1,6 @@
 import * as S from './css/CardStyle';
 import { dataType } from 'types';
+import { FlexBox, FlexColumn } from 'styles/commonStyles';
 
 const Card = (props: { item: dataType }) => {
   const { title, client, due, count, amount, method, material, status } =
@@ -7,17 +8,15 @@ const Card = (props: { item: dataType }) => {
 
   return (
     <S.Wrapper>
-      <S.Header>
+      <FlexColumn>
         <S.TitleWrap>
           <S.Title>{title}</S.Title>
           <S.Badge status={status}>상담중</S.Badge>
         </S.TitleWrap>
         <S.Client>{client}</S.Client>
         <S.Due>{due}까지 납기</S.Due>
-      </S.Header>
-
+      </FlexColumn>
       <S.Divider />
-
       <S.Section>
         <S.Content>
           <S.Wrap>
@@ -37,10 +36,10 @@ const Card = (props: { item: dataType }) => {
             <S.Info>{material.join(', ')}</S.Info>
           </S.Wrap>
         </S.Content>
-        <S.ButtonWrap>
+        <FlexBox>
           <S.ShowHistory>요청 내역 보기</S.ShowHistory>
           <S.Chatting>채팅하기</S.Chatting>
-        </S.ButtonWrap>
+        </FlexBox>
       </S.Section>
     </S.Wrapper>
   );

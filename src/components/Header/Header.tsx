@@ -3,6 +3,7 @@ import Burger from 'common/Burger/Burger';
 import Sidebar from '../Sidebar/Sidebar';
 import { BurgerMenuType } from 'types';
 import { logo, company } from 'assets';
+import { Image } from 'styles/commonStyles';
 
 const Header = (props: BurgerMenuType) => {
   return (
@@ -11,13 +12,13 @@ const Header = (props: BurgerMenuType) => {
         <Burger openMenu={props.openMenu} setOpenMenu={props.setOpenMenu} />
         <Sidebar openMenu={props.openMenu} />
         <S.LogoWrap onClick={() => (window.location.href = '/')}>
-          <S.Logo src={logo} alt='logo' />
+          <Image src={logo} alt='logo' width='100%' height='100%' />
         </S.LogoWrap>
       </div>
       <S.GnbWrap show>
         <S.CompanyWrap>
           <S.CompanyImgWrap>
-            <S.Company src={company} alt='processor' />
+            <Image src={company} alt='processor' height='100%' />
           </S.CompanyImgWrap>
           <S.CompanyName>A 가공 업체</S.CompanyName>
         </S.CompanyWrap>

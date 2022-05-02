@@ -32,11 +32,6 @@ export const LogoWrap = styled.div`
   }
 `;
 
-export const Logo = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
 export const GnbWrap = styled('div')<{ show: boolean }>`
   display: flex;
   align-items: center;
@@ -47,18 +42,14 @@ export const GnbWrap = styled('div')<{ show: boolean }>`
 `;
 
 export const CompanyWrap = styled.div`
-  height: 15px;
   display: flex;
   align-items: center;
+  height: 15px;
 `;
 
 export const CompanyImgWrap = styled.div`
   height: 100%;
   margin: -11px 8px 0 0;
-`;
-
-export const Company = styled.img`
-  height: 100%;
 `;
 
 export const CompanyName = styled.p`

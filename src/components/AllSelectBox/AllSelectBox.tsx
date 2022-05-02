@@ -1,41 +1,56 @@
 import * as S from './css/AllSelectBoxStyle';
+import { FlexBox, Image } from 'styles/commonStyles';
 import SelectBox from '../SelectBox/SelectBox';
 import { AllSelectBoxProps } from 'types';
 import { MATERIAL, METHOD } from 'utils/constants/filterType';
 import img from 'assets/refresh.png';
 
 const AllSelectBox = (props: AllSelectBoxProps) => {
+  const {
+    click,
+    setClick,
+    methodSelect,
+    setMethodSelect,
+    materialSelect,
+    setMaterialSelect,
+  } = props;
+
   const handleRefresh = () => {
-    props.setMethodSelect([]);
-    props.setMaterialSelect([]);
+    setMethodSelect([]);
+    setMaterialSelect([]);
   };
 
   return (
-    <S.Wrapper>
-      <S.ButtonWrapper>
+    <FlexBox>
+      <FlexBox margin='0 15 0 0'>
         <SelectBox
           type={METHOD}
-          click={props.click}
-          setClick={props.setClick}
-          select={props.methodSelect}
-          setSelect={props.setMethodSelect}
+          click={click}
+          setClick={setClick}
+          select={methodSelect}
+          setSelect={setMethodSelect}
         />
         <SelectBox
           type={MATERIAL}
-          click={props.click}
-          setClick={props.setClick}
-          select={props.materialSelect}
-          setSelect={props.setMaterialSelect}
+          click={click}
+          setClick={setClick}
+          select={materialSelect}
+          setSelect={setMaterialSelect}
         />
-      </S.ButtonWrapper>
-      {(props.methodSelect.length !== 0 ||
-        props.materialSelect.length !== 0) && (
+      </FlexBox>
+      {(methodSelect.length !== 0 || materialSelect.length !== 0) && (
         <S.RefreshButton onClick={handleRefresh}>
-          <S.Img src={img} />
+          <Image
+            src={img}
+            alt='filter reset'
+            width='24'
+            height='24'
+            margin='0 5 0 0'
+          />
           <S.Text>필터링 리셋</S.Text>
         </S.RefreshButton>
       )}
-    </S.Wrapper>
+    </FlexBox>
   );
 };
 

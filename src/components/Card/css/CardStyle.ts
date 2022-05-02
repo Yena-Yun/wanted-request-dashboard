@@ -6,16 +6,14 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.color.light};
   border-radius: ${({ theme }) => theme.radius.base};
   margin: 0 8px 8px 0;
+
   &:hover {
     border: 1px solid ${({ theme }) => theme.color.primary};
   }
+
   @media screen and (max-width: ${({ theme }) => theme.media.mobile}) {
     padding: 20px 12px 16px;
   }
-`;
-
-export const Header = styled.div`
-  ${({ theme }) => theme.flex.column}
 `;
 
 export const TitleWrap = styled.div`
@@ -136,10 +134,6 @@ export const Info = styled.div`
     font-size: 10px;
     line-height: 10px;
   }
-`;
-
-export const ButtonWrap = styled.div`
-  display: flex;
 `;
 
 export const ShowHistory = styled.div`
