@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import * as S from './css/ToggleStyle';
-import { ToggleProps } from 'types';
+
+interface ToggleProps {
+  checked: boolean;
+  setChecked: (checked: boolean) => void;
+  click: number;
+  setClick: (click: number) => void;
+}
 
 const Toggle = (props: ToggleProps) => {
   const [browserSize, setBrowserSize] = useState<number>(window.innerWidth);

@@ -1,13 +1,13 @@
 import checkIcon from 'assets/check.png';
 import * as S from './css/ModalStyle';
-import { ModalProps } from 'types';
+import { StyleType } from 'types';
 
-const Modal = ({
-  type,
-  setSelect,
-  select,
-  setClick,
-}: ModalProps): JSX.Element => {
+interface ModalProps extends StyleType {
+  setSelect: (select: string[]) => void;
+  setClick: (select: number) => void;
+}
+
+const Modal = ({ type, setSelect, select }: ModalProps): JSX.Element => {
   const method: string[] = ['밀링', '선반'];
   const material: string[] = ['알루미늄', '탄소강', '구리', '합금강', '강철'];
   let list: string[] = method;

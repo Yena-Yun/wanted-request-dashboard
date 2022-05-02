@@ -1,9 +1,17 @@
 import * as S from './css/HeaderStyle';
 import Burger from 'common/Burger/Burger';
 import Sidebar from '../Sidebar/Sidebar';
-import { BurgerMenuType } from 'types';
 import { logo, company } from 'assets';
 import { Image } from 'styles/commonStyles';
+import { RefObject } from 'react';
+
+interface refType {
+  divEl: RefObject<HTMLDivElement>;
+}
+interface BurgerMenuType extends refType {
+  openMenu: boolean;
+  setOpenMenu: (openMenu: boolean) => void;
+}
 
 const Header = (props: BurgerMenuType) => {
   return (
